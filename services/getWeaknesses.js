@@ -1,6 +1,8 @@
 import getElements from "./getElements"
 
 export default getWeaknesses = (resistString) => {
+    // 
+
     // get the list of applicable elements
     const elements = getElements()
     let weaknessesForDemon = {}
@@ -14,8 +16,12 @@ export default getWeaknesses = (resistString) => {
 
 const weakness = {
     w: "weak",
+    x: "weak",
     n: "null",
+    N: "null",
     s: "resist",
     d: "absorb",
+    r: "repells",
+    a: "neutral",
     '-': "neutral"
 }
