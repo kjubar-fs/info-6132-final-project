@@ -1,4 +1,6 @@
 export default baseUrl = "https://persona-api-wrapper.vercel.app/api/"
+export const generalData = "compendium/data/"
+export const generalSkillsEndpoint = "skill-effects.json"
 export const p5rData = "p5r/data/"
 export const endpoints = {
     accesories: "accessories.json",
