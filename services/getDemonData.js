@@ -99,5 +99,25 @@ const getShadowsNamesByArea = async(area) => {
     return shadows
 }
 
+const getAllAreas = () => {
+    return [
+        "Depths",
+        "Spaceport",
+        "Castle",
+        "Casino",
+        "Bank",
+        "Pyramid",
+        "Cruiser",
+        "Museum",
+        "Qliphoth",
+        "Akzeriyyuth",
+        "Laboratory",
+        "Aiyatsbus",
+        "Adyeshach",
+        "Kaitul",
+        "Chemdah",
+        "Qimranut"
+    ]
+}
 
-export { getPartyMembers, getAllDemons, getDemonByName, getAllShadows, getShadowsByArea, getShadowsNamesByArea }
+export { getPartyMembers, getAllDemons, getDemonByName, getAllShadows, getShadowsByArea, getShadowsNamesByArea, getAllAreas }
