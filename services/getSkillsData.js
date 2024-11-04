@@ -12,6 +12,7 @@ const getAllSkills = async() => {
     }
 }
 
+// Function that retrieves a skill from the API by passing a string with its name
 const getSkillByName = async(name) => {
     let skill = {}
     try{
@@ -28,6 +29,7 @@ const getSkillByName = async(name) => {
     }
 }
 
+// Function that takes a skill object as received from the API and normalizes its data to use it in the app
 const getNormalizedSkillObject = async(skillData) => {
     let skill = {
         name: skillData.a[0],
@@ -80,12 +82,5 @@ const getAllSkillDescriptionTemplates = async() => {
         return e
     }
 }
-
-
-//   "91": { "a": ["Lullaby", "ail", "All foes"], 
-//          "b": [3, 1008, 0, 1, 1, 100, 0, 50], 
-//          "c": ["Sleep", "FMTExact", "-"] },
-
-//   "Exact": "$1% $2", -> "50% Sleep"
 
 export { getSkillDescription, getSkillByName, getNormalizedSkillObject }
