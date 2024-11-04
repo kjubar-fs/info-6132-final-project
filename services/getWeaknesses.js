@@ -14,12 +14,16 @@ export default getWeaknesses = (resistString) => {
 
 const weakness = {
     w: "weak",
+    W: "weak",
     x: "weak",
+    X: "weak",
     n: "null",
     N: "null",
     s: "resist",
     d: "absorb",
-    r: "repells",
+    D: "absorb",
+    r: "repels",
+    R: "repels",
     a: "neutral",
     '-': "neutral"
 }
