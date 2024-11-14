@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, ImageBackground, Text, StyleSheet } from "react-native";
+import { View, ImageBackground, Text, Image } from "react-native";
 import styles from "./ClockScreenStyles";
 
 const ClockScreen = () => {
@@ -62,7 +62,14 @@ const ClockScreen = () => {
                 alt="Calendar Background Image"
             >
                 <View style={styles.textContainer}>
-                    <Text style={{...styles.text, color: isDaylight ? 'black' : 'white'}}>{month}/{day}</Text>
+                    <View style={styles.daggerRow}>
+                        <Text style={{...styles.text, color: isDaylight ? 'black' : 'white'}}>{month}/{day}</Text>
+                        <Image
+                            source={require('../../assets/calendarDagger.png')}
+                            style={styles.dagger}
+                        />
+                    </View>
+
                     <Text style={{...styles.text, color: isDaylight ? 'black' : 'white'}}>{weekday}</Text>
                     <Text style={{...styles.hourText, color: isDaylight ? 'black' : 'white'}}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>

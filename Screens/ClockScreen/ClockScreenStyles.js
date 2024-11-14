@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+const daggerSize = 50
+
 export default ClockScreenStyles = StyleSheet.create({
     container: {
         display: 'flex',
@@ -18,6 +20,17 @@ export default ClockScreenStyles = StyleSheet.create({
     textContainer: {
         alignSelf: 'flex-start',
         marginTop: '50%',
+    },
+    daggerRow: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'baseline',
+        marginLeft: daggerSize,
+    },
+    dagger: {
+        position: 'relative',
+        width: daggerSize,
+        height: daggerSize,
     },
     text: {
         color: 'white',
