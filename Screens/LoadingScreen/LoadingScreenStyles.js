@@ -21,5 +21,13 @@ export default LoadingScreenStyles = StyleSheet.create({
         width: 90,
         height: 90,
         padding: 20,
+    },
+    jokerImg: {
+        maxWidth: 300,
+        maxHeight: 300,
+
+        alignSelf: 'center',
+        marginBottom: '30%',
+        marginTop: '30%',
     }
 })
