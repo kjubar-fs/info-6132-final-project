@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import ClockScreen from './Screens/ClockScreen/ClockScreen';
+import LoadingScreen from './Screens/LoadingScreen/LoadingScreen';
+import { useState } from 'react';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const [loading, setLoading] = useState(true)
+
+  setTimeout(()=>{
+    setLoading(false)
+  },2500)
+
+
+  if(loading){
+    return <LoadingScreen/>
+  }
+  else{
+    return <ClockScreen/>
+  }
+}
