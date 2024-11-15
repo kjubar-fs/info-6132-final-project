@@ -19,7 +19,7 @@ export default ClockScreenStyles = StyleSheet.create({
     },
     textContainer: {
         alignSelf: 'flex-start',
-        marginTop: '50%',
+        marginTop: '40%',
     },
     daggerRow: {
         display: 'flex',
