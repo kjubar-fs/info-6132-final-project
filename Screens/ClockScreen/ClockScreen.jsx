@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, ImageBackground, Text, Image } from "react-native";
+import { View, ImageBackground, Text, Image, Platform } from "react-native";
 import styles from "./ClockScreenStyles";
 
 const ClockScreen = () => {
@@ -45,13 +45,39 @@ const ClockScreen = () => {
     const day = date?.getDate()
     const weekday = weekdays[date?.getDay()]
     const month = date?.getMonth()
-    const hour = date?.getHours()
-    const minute = date?.getMinutes()
+    let hour = date?.getHours()
+    if(hour < 10){
+        hour = '0' + hour
+    }
+    let minute = date?.getMinutes()
+    if(minute < 10){
+        minute = '0' + minute
+    }
 
     // changing the background based on the time of the day
     const backgroundImage = isDaylight ? 
         require('../../assets/calendar_day.webp') :  
         require('../../assets/calendar_night.jpg')
+
+    // setting different typefaces based on the OS
+    const platformStyles = {
+        ios: {
+            date: {
+                fontFamily: 'HelveticaNeue'
+            },
+            hour: {
+                fontFamily: 'Avenir'
+            }
+        },
+        android: {
+            date: {
+                fontFamily: 'Roboto'
+            },
+            hour: {
+                fontFamily: 'monospace'
+            }
+        }
+    }
 
 
     return(
@@ -63,15 +89,15 @@ const ClockScreen = () => {
             >
                 <View style={styles.textContainer}>
                     <View style={styles.daggerRow}>
-                        <Text style={{...styles.text, color: isDaylight ? 'black' : 'white'}}>{month}/{day}</Text>
+                        <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{month}/{day}</Text>
                         <Image
                             source={require('../../assets/calendarDagger.png')}
                             style={styles.dagger}
                         />
                     </View>
 
-                    <Text style={{...styles.text, color: isDaylight ? 'black' : 'white'}}>{weekday}</Text>
-                    <Text style={{...styles.hourText, color: isDaylight ? 'black' : 'white'}}>{hour}{displayColon ? ":" : " "}{minute}</Text>
+                    <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{weekday}</Text>
+                    <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
             </ImageBackground>
         </View>
