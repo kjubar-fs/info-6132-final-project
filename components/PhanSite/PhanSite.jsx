@@ -1,10 +1,27 @@
-import { useState } from "react";
 import { View, Text, ImageBackground } from "react-native";
+import { useBatteryLevel } from 'expo-battery';
 import styles from "./PhanSiteStyles";
+import { useEffect, useState } from "react";
+
 
 const PhanSite = () => {
 
-    const [battery, setBattery] = useState(56.4)
+    const batteryLevel = useBatteryLevel()
+    const [battery, setBattery] = useState(0)
+
+    useEffect(()=>{
+        // checks the battery level. If unavailable (such as on an iOS simulator, it returns -1)
+        if(batteryLevel < 0){
+            setBattery(Math.round(Math.random()*100))
+        }
+        else{
+            // when available we set the battery level as the poll result
+            setBattery(Math.round(batteryLevel * 100))
+        }
+
+    },[batteryLevel])
+
+
 
     return(
         <View style={styles.container}>
