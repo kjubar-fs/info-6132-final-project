@@ -13,13 +13,12 @@ export default ClockScreenStyles = StyleSheet.create({
         width: '100%',
         height: '100%',
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
         alignItems: 'center',
     },
     textContainer: {
-        alignSelf: 'flex-start',
-        marginTop: '40%',
+        justifySelf: 'flex-start',
     },
     daggerRow: {
         display: 'flex',

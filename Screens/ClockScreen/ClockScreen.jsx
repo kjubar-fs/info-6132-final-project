@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, ImageBackground, Text, Image, Platform } from "react-native";
 import styles from "./ClockScreenStyles";
+import PhanSite from "../../components/PhanSite/PhanSite";
 
 const ClockScreen = () => {
 
@@ -99,6 +100,7 @@ const ClockScreen = () => {
                     <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{weekday}</Text>
                     <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
+                <PhanSite/>
             </ImageBackground>
         </View>
     )
