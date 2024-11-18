@@ -5,6 +5,11 @@ import styles from "./LoadingScreenStyles";
 const LoadingScreen = () => {
     return(
         <View style={styles.container}>
+            <Image
+                source={require('../../assets/takeYourTime.png')}
+                style={styles.jokerImg}
+                alt="Joker take your time"
+            />
             <View style={styles.imgContainer}>
                 <Image 
                     source={require('../../assets/hat_p5_logo.gif')}
