@@ -47,11 +47,7 @@ const PhantomChar = ({char, color, fontSize, displayShadow}) => {
     }
 
     return(
-        <Text
-            style={
-                displayShadow ? {...baseStyle, ...shadowStyle} : {...baseStyle}
-            }
-        >
+        <Text style={displayShadow ? {...baseStyle, ...shadowStyle} : {...baseStyle}}>
             {char}
         </Text>
     )
