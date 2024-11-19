@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Text, View } from "react-native";
 
-const PhantomText = ({text, fontSize = 18, color = "black", displayShadow = true, alignText = "center", style = {}}) => {
+const PhantomText = ({children, fontSize = 18, color = "black", displayShadow = true, alignText = "center", style = {}}) => {
 
-    const arrayOfChars = text.split("")
+    const arrayOfChars = children.split("")
 
     return(
         <View
