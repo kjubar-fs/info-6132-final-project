@@ -64,8 +64,8 @@ export const ClockScreen = () => {
 
     // changing the background based on the time of the day
     const backgroundImage = isDaylight ? 
-        require('../../assets/calendar_day.webp') :  
-        require('../../assets/calendar_night.jpg')
+        require('../../assets/calendar/calendar_day.webp') :  
+        require('../../assets/calendar/calendar_night.jpg')
 
     // setting different typefaces based on the OS
     const platformStyles = {
@@ -99,7 +99,7 @@ export const ClockScreen = () => {
                     <View style={styles.daggerRow}>
                         <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{month}/{day}</Text>
                         <Image
-                            source={require('../../assets/calendarDagger.png')}
+                            source={require('../../assets/calendar/calendarDagger.png')}
                             style={styles.dagger}
                         />
                     </View>
@@ -112,7 +112,7 @@ export const ClockScreen = () => {
                     <TouchableOpacity onPress={() => navigation.navigate("PersonasScreen")}>
                         <Text style={{fontSize: 20, textAlign: "center"}}>Personas</Text>
                     </TouchableOpacity>
-                    
+
                     <TouchableOpacity onPress={() => navigation.navigate("PartyScreen")}>
                         <Text style={{fontSize: 20, textAlign: "center"}}>Party</Text>
                     </TouchableOpacity>
