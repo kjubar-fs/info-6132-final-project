@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { Animated, useAnimatedValue } from 'react-native';
+
 import { ClockScreen } from './Screens/ClockScreen/ClockScreen';
 import { LoadingScreen } from './Screens/LoadingScreen/LoadingScreen';
 
@@ -8,15 +10,26 @@ import { AppLoader } from './components/AppLoader';
 export default function App() {
     const [loading, setLoading] = useState(true);
 
-    let content = <ClockScreen />;
-    if (loading) {
-        content = <LoadingScreen />;
-    }
+    const fadeAnim = useAnimatedValue(1);
+
+    const fadeOutLoading = () => {
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 1500,
+            useNativeDriver: true,
+        }).start(() => {
+            setLoading(false);
+        });
+    };
 
     return (
         <>
-            <AppLoader onLoaded={() => setLoading(false)} />
-            {content}
+            <AppLoader onLoaded={fadeOutLoading} />
+            <ClockScreen />
+            {loading &&
+                <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
+                    <LoadingScreen />
+                </Animated.View>}
         </>
     );
 }
