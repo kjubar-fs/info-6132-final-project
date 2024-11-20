@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { View, ImageBackground, Text, Image, Platform } from "react-native";
 import styles from "./ClockScreenStyles";
 import PhanSite from "../../components/PhanSite/PhanSite";
+import PhantomText from "../../components/common/PhantomText/PhantomText";
 
 const ClockScreen = () => {
 
@@ -96,8 +97,7 @@ const ClockScreen = () => {
                             style={styles.dagger}
                         />
                     </View>
-
-                    <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{weekday}</Text>
+                    <PhantomText color={isDaylight ? "black" : "white"} fontSize={24}>{weekday}</PhantomText>
                     <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
                 <PhanSite/>
