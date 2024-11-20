@@ -1,7 +1,20 @@
-import { Text } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import { ClockScreen } from "../ClockScreen/ClockScreen";
+
+const Stack = createStackNavigator();
 
 export function HomeScreen() {
     return (
-        <Text>Home</Text>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            <Stack.Screen
+                name="ClockScreen"
+                component={ClockScreen}
+            />
+        </Stack.Navigator>
     );
 }
