@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { View, Image } from "react-native";
 
-const TransitionScreen = () => {
+const TransitionScreen = ({duration = 10000}) => {
 
-    const [xPosition, setXPosition] = useState(900)
+    const INITIAL_POSITION = 900
+    const FINAL_POSITION_OFFSET = -800
+    const DISTANCE_PER_FRAME = 5
+    const TOTAL_DISTANCE = INITIAL_POSITION - FINAL_POSITION_OFFSET
+    const FRAME_RATE =  duration / (TOTAL_DISTANCE / DISTANCE_PER_FRAME)
+
+    const [xPosition, setXPosition] = useState(INITIAL_POSITION)
+    
 
     useEffect(()=>{
         // TODO: thinking about changing this interval with the Animation API
         // https://reactnative.dev/docs/animations
         const transition = setInterval(()=>{
-            setXPosition(prev => { return prev > 0 ? prev - 5 : prev })
-        },50)
+            setXPosition(prev => { return prev > 0 ? prev - DISTANCE_PER_FRAME : prev })
+        }, FRAME_RATE)
 
         return () => {
             clearInterval(transition)
@@ -30,7 +37,7 @@ const TransitionScreen = () => {
                 source={require('../../assets/jokerWalking.gif')}
                 style={{
                     position: 'absolute',
-                    left: xPosition -800,
+                    left: xPosition + FINAL_POSITION_OFFSET,
                     width: 1200,
                     height: '100%',
                     paddingRight: 300,
