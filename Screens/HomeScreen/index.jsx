@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { ClockScreen } from "../ClockScreen/ClockScreen";
 import { PersonasScreen } from "../PersonasScreen";
+import { PersonaDetailScreen } from "../PersonaDetailScreen";
 import { PartyScreen } from "../PartyScreen";
 
 const Stack = createStackNavigator();
@@ -23,6 +24,14 @@ export function HomeScreen() {
             <Stack.Screen
                 name="PersonasScreen"
                 component={PersonasScreen}
+            />
+
+            <Stack.Screen
+                name="PersonaDetailScreen"
+                component={PersonaDetailScreen}
+                options={({ route }) => ({
+                    headerTitle: route.params.personaName,
+                })}
             />
 
             <Stack.Screen

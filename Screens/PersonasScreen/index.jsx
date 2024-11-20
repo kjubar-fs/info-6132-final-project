@@ -1,7 +1,21 @@
-import { Text } from "react-native";
+import { Text, TouchableOpacity, FlatList } from "react-native";
+
+import { useNavigation } from "@react-navigation/native";
+
+// TODO: replace this with data from API
+import personaData from "../../dummyData/PersonaDataRoyal.json";
 
 export function PersonasScreen() {
+    const navigation = useNavigation();
+
     return (
-        <Text>Personas go here</Text>
+        <FlatList
+            data={Object.keys(personaData)}
+            renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => navigation.navigate("PersonaDetailScreen", { personaName: item })}>
+                    <Text>{item}</Text>
+                </TouchableOpacity>
+            )}
+        />
     );
 }
