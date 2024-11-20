@@ -12,7 +12,7 @@ export function PersonasScreen() {
         <FlatList
             data={Object.keys(personaData)}
             renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate("PersonaDetailScreen", { personaName: item })}>
+                <TouchableOpacity onPress={() => navigation.navigate("PersonaDetailScreen", { personaName: item })} key={item}>
                     <Text>{item}</Text>
                 </TouchableOpacity>
             )}
