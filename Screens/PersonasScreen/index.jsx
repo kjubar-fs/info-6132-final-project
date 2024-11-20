@@ -16,6 +16,8 @@ export function PersonasScreen() {
                     <Text>{item}</Text>
                 </TouchableOpacity>
             )}
+            style={{padding: 10}}
+            contentContainerStyle={{gap: 10}}
         />
     );
 }
