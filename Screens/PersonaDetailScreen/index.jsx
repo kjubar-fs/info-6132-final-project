@@ -23,7 +23,7 @@ export function PersonaDetailScreen() {
 
             <View style={{flexDirection: "row", flexWrap: "wrap", gap: 10}}>
                 {persona.elems.map((affinity, ix) => (
-                    <Text key={ix} style={{flex: 1, flexBasis: "18%"}}>{personaAffinities[affinity]} {elementList[ix]}</Text>
+                    <Text key={ix} style={{flex: 1, flexBasis: "17%"}}>{personaAffinities[affinity]} {elementList[ix]}</Text>
                 ))}
             </View>
 
