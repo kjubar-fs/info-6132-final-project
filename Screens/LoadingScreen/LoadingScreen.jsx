@@ -1,8 +1,8 @@
 import { View, Image } from "react-native";
+
 import styles from "./LoadingScreenStyles";
 
-
-const LoadingScreen = () => {
+export const LoadingScreen = () => {
     return(
         <View style={styles.container}>
             <Image
@@ -20,4 +20,3 @@ const LoadingScreen = () => {
         </View>
     )
 }
-export default LoadingScreen

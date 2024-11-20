@@ -1,10 +1,11 @@
 import { View, Text, ImageBackground } from "react-native";
-import { useBatteryLevel } from 'expo-battery';
-import styles from "./PhanSiteStyles";
+
 import { useEffect, useState } from "react";
+import { useBatteryLevel } from 'expo-battery';
 
+import styles from "./PhanSiteStyles";
 
-const PhanSite = () => {
+export const PhanSite = () => {
 
     const batteryLevel = useBatteryLevel()
     const [battery, setBattery] = useState(0)
@@ -36,4 +37,3 @@ const PhanSite = () => {
         </View>
     )
 }
-export default PhanSite
