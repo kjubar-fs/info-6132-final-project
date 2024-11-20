@@ -6,6 +6,8 @@ const TransitionScreen = () => {
     const [xPosition, setXPosition] = useState(900)
 
     useEffect(()=>{
+        // TODO: thinking about changing this interval with the Animation API
+        // https://reactnative.dev/docs/animations
         const transition = setInterval(()=>{
             setXPosition(prev => { return prev > 0 ? prev - 5 : prev })
         },50)
