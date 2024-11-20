@@ -4,15 +4,14 @@ const daggerSize = 50
 
 export default ClockScreenStyles = StyleSheet.create({
     container: {
-        display: 'flex',
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
     },
     img: {
+        flex: 1,
         width: '100%',
-        height: '100%',
-        display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -21,7 +20,6 @@ export default ClockScreenStyles = StyleSheet.create({
         justifySelf: 'flex-start',
     },
     daggerRow: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'baseline',
         marginLeft: daggerSize,

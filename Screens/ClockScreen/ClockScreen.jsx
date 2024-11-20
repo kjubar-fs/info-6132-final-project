@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
 import { View, ImageBackground, Text, Image, Platform } from "react-native";
-import styles from "./ClockScreenStyles";
-import PhanSite from "../../components/PhanSite/PhanSite";
 
-const ClockScreen = () => {
+import { useEffect, useState } from "react";
+
+import { PhanSite } from "../../components/PhanSite/PhanSite";
+
+import styles from "./ClockScreenStyles";
+
+export const ClockScreen = () => {
 
     // The hour in which the theme will change between day and night
     const SUNSET_HOUR = 18
@@ -105,4 +108,3 @@ const ClockScreen = () => {
         </View>
     )
 }
-export default ClockScreen

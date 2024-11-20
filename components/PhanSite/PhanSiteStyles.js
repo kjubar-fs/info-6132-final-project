@@ -10,7 +10,6 @@ export default PhanSiteStyles = StyleSheet.create({
         height: widgetDimm/2,
     },
     img: {
-        display: 'flex',
         flexDirection: 'row',
         width: widgetDimm,
         height: widgetDimm/2,
