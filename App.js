@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Animated, useAnimatedValue } from 'react-native';
 
-import { ClockScreen } from './Screens/ClockScreen/ClockScreen';
+import { HomeScreen } from './Screens/HomeScreen';
 import { LoadingScreen } from './Screens/LoadingScreen/LoadingScreen';
 
 import { AppLoader } from './components/AppLoader';
@@ -25,7 +25,7 @@ export default function App() {
     return (
         <>
             <AppLoader onLoaded={fadeOutLoading} />
-            <ClockScreen />
+            <HomeScreen />
             {loading &&
                 <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
                     <LoadingScreen />
