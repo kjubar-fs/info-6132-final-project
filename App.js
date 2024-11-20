@@ -8,20 +8,22 @@ export default function App() {
   const [loading, setLoading] = useState(true)
   const [showTransition, setShowTransition] = useState(true)
 
-  setTimeout(()=>{
-    setLoading(false)
-  },3000)
+  const TRANSITION_DURATION_IN_MS = 7000
 
   setTimeout(()=>{
-    setShowTransition(false)
-  },10000)
+    setLoading(false)
+    setTimeout(()=>{
+      setShowTransition(false)
+    },TRANSITION_DURATION_IN_MS)
+  },3000)
+
 
   if(loading){
     return <LoadingScreen/>
   }
 
   if(showTransition){
-    return <TransitionScreen duration={8000}/>
+    return <TransitionScreen duration={TRANSITION_DURATION_IN_MS}/>
   }
   else{
     return <ClockScreen/>
