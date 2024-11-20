@@ -1,6 +1,8 @@
-import { View, ImageBackground, Text, Image, Platform } from "react-native";
+import { View, ImageBackground, Text, Image, Platform, TouchableOpacity } from "react-native";
 
 import { useEffect, useState } from "react";
+
+import { useNavigation } from "@react-navigation/native";
 
 import { PhanSite } from "../../components/PhanSite/PhanSite";
 
@@ -17,6 +19,8 @@ export const ClockScreen = () => {
 
     // Array of weekdays to be used with Date().getDay()
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    const navigation = useNavigation()
 
     useEffect(()=>{
         // updates the time every minute
@@ -103,6 +107,17 @@ export const ClockScreen = () => {
                     <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{weekday}</Text>
                     <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
+
+                <View style={{gap: 20}}>
+                    <TouchableOpacity onPress={() => navigation.navigate("PersonasScreen")}>
+                        <Text style={{fontSize: 20, textAlign: "center"}}>Personas</Text>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity onPress={() => navigation.navigate("PartyScreen")}>
+                        <Text style={{fontSize: 20, textAlign: "center"}}>Party</Text>
+                    </TouchableOpacity>
+                </View>
+
                 <PhanSite/>
             </ImageBackground>
         </View>
