@@ -11,6 +11,7 @@ export default LoadingScreenStyles = StyleSheet.create({
 
     splash: {
         height: 300,
+        width: "100%",
     },
 
     loader: {
