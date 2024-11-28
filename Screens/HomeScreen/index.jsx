@@ -4,6 +4,7 @@ import { ClockScreen } from "../ClockScreen/ClockScreen";
 import { PersonasScreen } from "../PersonasScreen";
 import { PersonaDetailScreen } from "../PersonaDetailScreen";
 import { PartyScreen } from "../PartyScreen";
+import { PartyDetailScreen } from "../PartyDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,14 @@ export function HomeScreen() {
             <Stack.Screen
                 name="PartyScreen"
                 component={PartyScreen}
+            />
+
+            <Stack.Screen
+                name="PartyDetailScreen"
+                component={PartyDetailScreen}
+                options={({ route }) => ({
+                    headerTitle: route.params.partyMemberName,
+                })}
             />
         </Stack.Navigator>
     );
