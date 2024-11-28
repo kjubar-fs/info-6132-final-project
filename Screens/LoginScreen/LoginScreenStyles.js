@@ -36,10 +36,14 @@ export default LoginScreenStyles = StyleSheet.create({
         paddingHorizontal: 5,
     },
     btnContainer: {
-        marginTop: 20,
+        marginTop: 15,
+        marginBottom: 10,
     },
     loginToggle: {
         fontSize: 16,
         color: 'white',
+    },
+    alert: {
+        color: 'red',
     },
 })
