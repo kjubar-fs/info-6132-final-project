@@ -11,6 +11,7 @@ export default LoginScreenStyles = StyleSheet.create({
         color: 'black',
         fontSize: 24,
         flexWrap: 'wrap',
+        textAlign: 'center',
         // added shadow to improve legibility on darker backgrounds
         textShadowOffset: {width: -1, height: -1},
         textShadowColor: 'white',

@@ -57,7 +57,7 @@ export default function App() {
             {/* DEBUG ONLY BUTTON. TODO: MOVE TO APPROPIATE PLACE AFTER TESTING */}
             <Button
                 title='Log out'
-                onPress={()=>{signOutUser(setUserAuth)}}
+                onPress={()=>{signOutUser(setUserAuth) /* TODO: RESET TRANSITION SCREEN VALUE */}}
             />
             {/* END OF DEBUG ONLY BUTTON */}
             {loading &&
