@@ -5,6 +5,8 @@ import { useRoute } from "@react-navigation/native";
 // TODO: replace this with data from API
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
+import { PersonaDetails } from "../../components/persona/PersonaDetails";
+
 export function PartyDetailScreen() {
     // get party member data
     const route = useRoute();
@@ -12,8 +14,10 @@ export function PartyDetailScreen() {
     const personas = partyData[partyMemberName];
 
     return (
-        <ScrollView style={{flex: 1, padding: 10, backgroundColor: "white"}} contentContainerStyle={{gap: 20}}>
-            <Text>{JSON.stringify(personas, undefined, 4)}</Text>
+        <ScrollView style={{flex: 1, backgroundColor: "white"}} contentContainerStyle={{paddingBottom: 30, gap: 20}} showsVerticalScrollIndicator={false}>
+            {Object.keys(personas).map((personaName) => (
+                <PersonaDetails key={personaName} name={personaName} details={partyData[partyMemberName][personaName]} />
+            ))}
         </ScrollView>
     );
 }
