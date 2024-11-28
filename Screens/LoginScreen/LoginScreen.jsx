@@ -62,7 +62,7 @@ export const LoginScreen = () => {
                         <TextInput
                         style={styles.inputField}
                         value={email}
-                        onChange={setEmail}
+                        onChange={(e) => setEmail(e.nativeEvent.text)}
                         keyboardType="email"
                         />
                     </View>
@@ -71,7 +71,7 @@ export const LoginScreen = () => {
                         <TextInput
                         style={styles.inputField}
                         value={password}
-                        onChange={setPassword}
+                        onChange={(e) => setPassword(e.nativeEvent.text)}
                         secureTextEntry={true}
                         />
                     </View>
