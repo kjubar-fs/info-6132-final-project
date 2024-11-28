@@ -2,7 +2,7 @@
     "Morgana": {
         "Zorro": {
             "inherits": "Wind",
-            "lvl": 1,
+            "level": 1,
             "arcana": "Magician",
             "elems": ["-", "-", "-", "-", "wk", "rs", "-", "-", "-", "-"],
             "skills": {
@@ -37,7 +37,7 @@
         },
         "Mercurius": {
             "inherits": "Wind",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Magician",
             "elems": ["-", "-", "-", "-", "wk", "nu", "-", "-", "rs", "-"],
             "skills": {
@@ -74,7 +74,7 @@
         },
         "Diego": {
             "inherits": "Wind",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Magician",
             "elems": ["-", "-", "-", "-", "wk", "nu", "-", "-", "rs", "-"],
             "skills": {
@@ -114,7 +114,7 @@
     "Ryuji": {
         "Captain Kidd": {
             "inherits": "Electric",
-            "lvl": 4,
+            "level": 4,
             "arcana": "Chariot",
             "elems": ["-", "-", "-", "-", "rs", "wk", "-", "-", "-", "-"],
             "skills": {
@@ -148,7 +148,7 @@
         },
         "Seiten Taisei": {
             "inherits": "Electric",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Chariot",
             "elems": ["-", "-", "rs", "-", "nu", "wk", "-", "-", "-", "-"],
             "skills": {
@@ -184,7 +184,7 @@
         },
         "William": {
             "inherits": "Electric",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Chariot",
             "elems": ["-", "-", "rs", "-", "nu", "wk", "-", "-", "-", "-"],
             "skills": {
@@ -223,7 +223,7 @@
     "Ann": {
         "Carmen": {
             "inherits": "Fire",
-            "lvl": 5,
+            "level": 5,
             "arcana": "Lovers",
             "elems": ["-", "-", "rs", "wk", "-", "-", "-", "-", "-", "-"],
             "skills": {
@@ -255,7 +255,7 @@
         },
         "Hecate": {
             "inherits": "Fire",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Lovers",
             "elems": ["-", "-", "nu", "wk", "rs", "-", "-", "-", "-", "-"],
             "skills": {
@@ -289,7 +289,7 @@
         },
         "Célestine": {
             "inherits": "Fire",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Lovers",
             "elems": ["-", "-", "nu", "wk", "rs", "-", "-", "-", "-", "-"],
             "skills": {
@@ -326,7 +326,7 @@
     "Yusuke": {
         "Goemon": {
             "inherits": "Ice",
-            "lvl": 15,
+            "level": 15,
             "arcana": "Emperor",
             "elems": ["-", "-", "wk", "rs", "-", "-", "-", "-", "-", "-"],
             "skills": {
@@ -359,7 +359,7 @@
         },
         "Kamu Susano-o": {
             "inherits": "Ice",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Emperor",
             "elems": ["-", "-", "wk", "nu", "-", "rs", "-", "-", "-", "-"],
             "skills": {
@@ -394,7 +394,7 @@
         },
         "Gorokichi": {
             "inherits": "Ice",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Emperor",
             "elems": ["-", "-", "wk", "nu", "-", "rs", "-", "-", "-", "-"],
             "skills": {
@@ -432,7 +432,7 @@
     "Makoto": {
         "Johanna": {
             "inherits": "Nuclear",
-            "lvl": 21,
+            "level": 21,
             "arcana": "Priestess",
             "elems": ["-", "-", "-", "-", "-", "-", "wk", "rs", "-", "-"],
             "skills": {
@@ -465,7 +465,7 @@
         },
         "Anat": {
             "inherits": "Nuclear",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Priestess",
             "elems": ["-", "-", "-", "-", "-", "-", "wk", "nu", "-", "rs"],
             "skills": {
@@ -500,7 +500,7 @@
         },
         "Agnes": {
             "inherits": "Nuclear",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Priestess",
             "elems": ["-", "-", "-", "-", "-", "-", "wk", "nu", "-", "rs"],
             "skills": {
@@ -538,7 +538,7 @@
     "Futaba": {
         "Necronomicon": {
             "inherits": "Almighty",
-            "lvl": 31,
+            "level": 31,
             "arcana": "Hermit",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
             "skills": {
@@ -561,7 +561,7 @@
         },
         "Prometheus": {
             "inherits": "Almighty",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Hermit",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
             "skills": {
@@ -585,7 +585,7 @@
         },
         "Al Azif": {
             "inherits": "Almighty",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Hermit",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
             "skills": {
@@ -612,7 +612,7 @@
     "Haru": {
         "Milady": {
             "inherits": "Psy",
-            "lvl": 36,
+            "level": 36,
             "arcana": "Empress",
             "elems": ["-", "-", "-", "-", "-", "-", "rs", "wk", "-", "-"],
             "skills": {
@@ -642,7 +642,7 @@
         },
         "Astarte": {
             "inherits": "Psy",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Empress",
             "elems": ["-", "-", "-", "rs", "-", "-", "nu", "wk", "-", "-"],
             "skills": {
@@ -674,7 +674,7 @@
         },
         "Lucy": {
             "inherits": "Psy",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Empress",
             "elems": ["-", "-", "-", "rs", "-", "-", "nu", "wk", "-", "-"],
             "skills": {
@@ -709,7 +709,7 @@
     "Akechi": {
         "Robin Hood": {
             "inherits": "Almighty",
-            "lvl": 45,
+            "level": 45,
             "arcana": "Justice",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "rs", "wk"],
             "skills": {
@@ -735,7 +735,7 @@
         },
         "Loki": {
             "inherits": "Curse",
-            "lvl": 75,
+            "level": 75,
             "arcana": "Justice",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "wk", "nu"],
             "skills": {
@@ -755,7 +755,7 @@
         },
         "Herward": {
             "inherits": "Curse",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Justice",
             "elems": ["-", "-", "-", "-", "-", "-", "rs", "-", "wk", "nu"],
             "skills": {
@@ -778,7 +778,7 @@
     "Yoshizawa": {
         "Cendrillon": {
             "inherits": "Bless",
-            "lvl": 75,
+            "level": 75,
             "arcana": "Faith",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "nu", "wk"],
             "skills": {
@@ -798,7 +798,7 @@
         },
         "Vanadis": {
             "inherits": "Bless",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Faith",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "-", "nu", "wk"],
             "skills": {
@@ -820,7 +820,7 @@
         },
         "Ella": {
             "inherits": "Bless",
-            "lvl": "inherit",
+            "level": "inherit",
             "arcana": "Faith",
             "elems": ["-", "-", "-", "-", "-", "-", "-", "rs", "nu", "wk"],
             "skills": {
