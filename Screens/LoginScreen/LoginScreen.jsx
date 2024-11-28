@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, Text, ImageBackground, TextInput, Pressable, Button } from "react-native";
-import { areFieldsValid, signIn } from "../../services/auth/firebaseAuth";
+import { areFieldsValid, signIn, signUp } from "../../services/auth/firebaseAuth";
 import styles from "./LoginScreenStyles";
 
 
@@ -15,9 +15,6 @@ export const LoginScreen = () => {
 
     const loginAttempt = async() => {
         setAlert("")
-
-        console.log(email,password)
-
         const validation = areFieldsValid(email, password)
         
         if(!validation.success){
