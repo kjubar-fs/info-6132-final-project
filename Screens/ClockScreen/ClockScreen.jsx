@@ -110,11 +110,11 @@ export const ClockScreen = () => {
 
                 <View style={{gap: 20}}>
                     <TouchableOpacity onPress={() => navigation.navigate("PersonasScreen")}>
-                        <Text style={{fontSize: 20, textAlign: "center"}}>Personas</Text>
+                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Personas</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => navigation.navigate("PartyScreen")}>
-                        <Text style={{fontSize: 20, textAlign: "center"}}>Party</Text>
+                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Party</Text>
                     </TouchableOpacity>
                 </View>
 
