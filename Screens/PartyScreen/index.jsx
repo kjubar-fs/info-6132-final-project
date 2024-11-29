@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 // TODO: replace this with data from API
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
+import { safeAreaBottomPadding } from "../../utils/constants";
+
 export function PartyScreen() {
     const navigation = useNavigation();
 
@@ -16,8 +18,7 @@ export function PartyScreen() {
                     <Text>{item}</Text>
                 </TouchableOpacity>
             )}
-            style={{padding: 10}}
-            contentContainerStyle={{gap: 10, paddingBottom: 10}}
+            contentContainerStyle={{gap: 10, padding: 10, paddingBottom: safeAreaBottomPadding}}
         />
     );
 }

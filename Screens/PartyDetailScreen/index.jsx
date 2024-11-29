@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 import { useRoute } from "@react-navigation/native";
 
@@ -14,7 +14,7 @@ export function PartyDetailScreen() {
     const personas = partyData[partyMemberName];
 
     return (
-        <ScrollView style={{flex: 1, backgroundColor: "white"}} contentContainerStyle={{paddingBottom: 30, gap: 20}} showsVerticalScrollIndicator={false}>
+        <ScrollView style={{flex: 1, backgroundColor: "white"}} contentContainerStyle={{gap: 20}} showsVerticalScrollIndicator={false}>
             {Object.keys(personas).map((personaName) => (
                 <PersonaDetails key={personaName} name={personaName} details={partyData[partyMemberName][personaName]} />
             ))}
