@@ -1,14 +1,16 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
+import { Image } from "expo-image";
 
 import { elementList, personaAffinities } from "../../../utils/dataMaps";
 
-import styles from "./styles";
 import { ItemDetail } from "../ItemDetail";
+
+import styles from "./styles";
 
 export function PersonaDetails({ name, details }) {
     return (
-        <View style={styles.container}>
-            <View style={{gap: 10}}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.scrollContainer}>
+            <View style={styles.gapContainer}>
                 <Text>{name}</Text>
 
                 <Text>Arcana: {details.arcana}</Text>
@@ -27,7 +29,17 @@ export function PersonaDetails({ name, details }) {
                     <Text>Requires DLC</Text>}
             </View>
 
-            <View style={styles.affinityContainer}>
+            <View style={{alignSelf: "center", flexDirection: "row"}}>
+                <Image
+                    source={details.image}
+                    placeholder={require("../../../assets/loading/takeYourTime.png")}
+                    style={{flex: 1, height: 250}}
+                    contentFit="contain"
+                    placeholderContentFit="contain"
+                />
+            </View>
+
+            <View style={[styles.gapContainer, styles.affinityContainer]}>
                 {details.elems.map((affinity, ix) => (
                     <Text key={ix} style={{flex: 1, flexBasis: "17%"}}>{personaAffinities[affinity]} {elementList[ix]}</Text>
                 ))}
@@ -64,6 +76,6 @@ export function PersonaDetails({ name, details }) {
                     return <Text key={ix}>{level} - {skillName}</Text>;
                 })}
             </View>
-        </View>
+        </ScrollView>
     );
 }

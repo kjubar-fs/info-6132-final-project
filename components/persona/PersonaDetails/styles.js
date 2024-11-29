@@ -1,17 +1,23 @@
 import { StyleSheet } from "react-native";
+import { safeAreaBottomPadding } from "../../../utils/constants";
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
+        backgroundColor: "white",
+    },
+
+    scrollContainer: {
         gap: 20,
         padding: 10,
-        
-        backgroundColor: "white",
+        paddingBottom: safeAreaBottomPadding,
+    },
+
+    gapContainer: {
+        gap: 10,
     },
 
     affinityContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
-        gap: 10,
     },
 });
