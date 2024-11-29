@@ -1,23 +1,29 @@
-import { View, Image } from "react-native";
+import { View } from "react-native";
+
+// use expo-image library for GIF support on Android
+// mostly the same properties as a RN Image component but more performant as well,
+// with additional features too
+// requires an explicit height AND width, not just one or the other
+import { Image } from "expo-image";
+
 import styles from "./LoadingScreenStyles";
 
-
-const LoadingScreen = () => {
+export const LoadingScreen = () => {
     return(
-        <View style={styles.container}>
+        <View style={styles.background}>
             <Image
                 source={require('../../assets/takeYourTime.png')}
-                style={styles.jokerImg}
+                style={styles.splash}
+                contentFit="contain"
                 alt="Joker take your time"
             />
-            <View style={styles.imgContainer}>
-                <Image 
-                    source={require('../../assets/hat_p5_logo.gif')}
-                    style={styles.img}
-                    alt="Persona 5 Logo"
-                />
-            </View>
+            
+            <Image
+                source={require('../../assets/hat_p5_logo.gif')}
+                style={styles.loader}
+                contentFit="contain"
+                alt="Persona 5 Logo"
+            />
         </View>
     )
 }
-export default LoadingScreen
