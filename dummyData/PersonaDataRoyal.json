@@ -1,5 +1,6 @@
 {
     "Abaddon": {
+        "image": "https://static.wikia.nocookie.net/megamitensei/images/7/7f/00077_Abaddon.png",
         "inherits": "Curse",
         "item": "Megaton Raid Belt",
         "itemr": "God's Hand Belt",
