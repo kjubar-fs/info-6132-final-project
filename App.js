@@ -28,6 +28,10 @@ export default function App() {
         });
     };
 
+    const logoutUser = async() => {
+        await signOutUser(setUserAuth)
+    }
+
     useEffect(()=>{
     // subscribe to the onAuthStateChanged event
     const loginSub = onAuthStateChanged(auth, (firebaseUser) => {
@@ -53,13 +57,7 @@ export default function App() {
     return (
         <>
             <AppLoader onLoaded={fadeOutLoading} />
-            <ClockScreen />
-            {/* DEBUG ONLY BUTTON. TODO: MOVE TO APPROPIATE PLACE AFTER TESTING */}
-            <Button
-                title='Log out'
-                onPress={()=>{signOutUser(setUserAuth) /* TODO: RESET TRANSITION SCREEN VALUE */}}
-            />
-            {/* END OF DEBUG ONLY BUTTON */}
+            <ClockScreen logout={logoutUser}/>
             {loading &&
                 <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
                     <LoadingScreen />
