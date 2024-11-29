@@ -2,10 +2,8 @@ import { View, Text } from "react-native";
 
 import { elementList, personaAffinities } from "../../../utils/dataMaps";
 
-// TODO: replace this with data from API
-import itemData from "../../../dummyData/ItemDataRoyal.json";
-
 import styles from "./styles";
+import { ItemDetail } from "../ItemDetail";
 
 export function PersonaDetails({ name, details }) {
     return (
@@ -39,25 +37,9 @@ export function PersonaDetails({ name, details }) {
                 <View style={{gap: 10}}>
                     <Text>Execution Items</Text>
 
-                    <View style={{gap: 10}}>
-                        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                            <Text>{details.item}</Text>
-
-                            <Text>{details.skillCard ? "Skill Card" : itemData[details.item].type}</Text>
-                        </View>
-
-                        {!details.skillCard && <Text>{itemData[details.item].description}</Text>}
-                    </View>
+                    <ItemDetail item={details.item} skillCard={details.skillCard} />
                     
-                    <View style={{gap: 10}}>
-                        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                            <Text>{details.itemr}</Text>
-                            
-                            <Text>{details.skillCard ? "Skill Card" : itemData[details.itemr].type}</Text>
-                        </View>
-
-                        {!details.skillCard && <Text>{itemData[details.itemr].description}</Text>}
-                    </View>
+                    <ItemDetail item={details.itemr} skillCard={details.skillCard} isRare />
                 </View>}
 
             <View style={{gap: 10}}>
