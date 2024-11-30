@@ -64,6 +64,9 @@ export const LoginScreen = () => {
                         <TextInput
                         style={styles.inputField}
                         value={email}
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        autoComplete="email"
                         onChange={(e) => setEmail(e.nativeEvent.text)}
                         keyboardType="email"
                         />
@@ -73,6 +76,8 @@ export const LoginScreen = () => {
                         <TextInput
                         style={styles.inputField}
                         value={password}
+                        autoCapitalize="none"
+                        autoCorrect={false}
                         onChange={(e) => setPassword(e.nativeEvent.text)}
                         secureTextEntry={true}
                         />
@@ -84,6 +89,8 @@ export const LoginScreen = () => {
                             <TextInput
                             style={styles.inputField}
                             value={confirmPassword}
+                            autoCapitalize="none"
+                            autoCorrect={false}
                             onChange={(e) => setConfirmPassword(e.nativeEvent.text)}
                             secureTextEntry={true}
                             />
