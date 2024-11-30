@@ -1,5 +1,6 @@
 import { useRoute } from "@react-navigation/native";
 
+import { BackgroundWrapper } from "../../components/persona/BackgroundWrapper";
 import { PersonaDetails } from "../../components/persona/PersonaDetails";
 
 // TODO: replace this with data from API
@@ -12,6 +13,8 @@ export function PersonaDetailScreen() {
     const persona = personaData[personaName];
 
     return (
-        <PersonaDetails name={personaName} details={persona} />
+        <BackgroundWrapper>
+            <PersonaDetails name={personaName} details={persona} />
+        </BackgroundWrapper>
     );
 }
