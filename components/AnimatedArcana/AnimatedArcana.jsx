@@ -12,7 +12,7 @@ export const AnimatedArcana = ({children, arcana = "Fool", background = require(
     const [extraYRotation, setExtraYRotation] = useState(0)
     const [showContent, setShowContent] = useState(!delayContent)
     const [showBackground, setShowBackground] = useState(!delayBackground)
-    const [displayImage, setDisplayImage] = useState(arcana)
+    const [displayImage, setDisplayImage] = useState(arcanaImage)
 
     useEffect(() => {
         const interval = setInterval(()=>{
