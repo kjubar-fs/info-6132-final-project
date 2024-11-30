@@ -1,9 +1,8 @@
 import { View, Text, ScrollView } from "react-native";
 import { Image } from "expo-image";
 
-import { elementList, personaAffinities } from "../../../utils/dataMaps";
-
 import { ItemDetail } from "../ItemDetail";
+import { Affinity } from "../Affinity";
 
 import styles from "./styles";
 
@@ -41,7 +40,7 @@ export function PersonaDetails({ name, details }) {
 
             <View style={[styles.gapContainer, styles.affinityContainer]}>
                 {details.elems.map((affinity, ix) => (
-                    <Text key={ix} style={{flex: 1, flexBasis: "17%"}}>{personaAffinities[affinity]} {elementList[ix]}</Text>
+                    <Affinity key={ix} elementIx={ix} value={affinity} />
                 ))}
             </View>
 
