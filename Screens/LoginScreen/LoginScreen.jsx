@@ -11,7 +11,10 @@ export const LoginScreen = () => {
     const [password, setPassword] = useState("")
     const [alert, setAlert] = useState("")
 
-    const toggleScreen = () => { setIsReturningUser(prev => !prev)}
+    const toggleScreen = () => { 
+        setEmail("")
+        setPassword("")
+        setIsReturningUser(prev => !prev)}
 
     const loginAttempt = async() => {
         setAlert("")
