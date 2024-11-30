@@ -3,26 +3,19 @@ export const elementList = [
     "gun",
     "fire",
     "ice",
-    "elec",
+    "electric",
     "wind",
     "psy",
-    "nuke",
+    "nuclear",
     "bless",
     "curse",
 ];
 
 export const personaAffinities = {
-    "-": "neutral",
-    "wk": "weak",
-    "rs": "resist",
-    "nu": "null",
-    "ab": "absorb",
-    "rp": "repel",
-};
-
-export const partyAffinities = {
-    "-": "neutral",
-    "w": "weak",
-    "s": "resist",
-    "n": "null",
+    "-": "",
+    "wk": "Wk",
+    "rs": "Str",
+    "nu": "Nul",
+    "ab": "Dr",
+    "rp": "Rpl",
 };
