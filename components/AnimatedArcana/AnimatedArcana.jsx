@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
+import { cardImage } from "../../utilities/arcanasImages";
 
 // TODO: CLEAR THE DEFAULT PROPS FOR arcana AND background AFTER TESTING
-export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas/Fool.webp"), background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+export const AnimatedArcana = ({children, arcana = "Fool", background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+
+    const cardBackground = cardImage["CardBack"]
+    const arcanaImage = cardImage[arcana]
 
     const [animatedValue, setAnimatedValue] = useState(0)
+    const [extraYRotation, setExtraYRotation] = useState(0)
     const [showContent, setShowContent] = useState(!delayContent)
     const [showBackground, setShowBackground] = useState(!delayBackground)
+    const [displayImage, setDisplayImage] = useState(arcana)
 
     useEffect(() => {
         const interval = setInterval(()=>{
@@ -17,6 +23,8 @@ export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas
                 else{
                     setShowBackground(true)
                     setShowContent(true)
+                    // starts rotating the card on its Y axis after completing the initial animation
+                    setExtraYRotation(prevY => prevY + 0.1)
                     return prev
                 }
             })
@@ -25,6 +33,14 @@ export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas
         return ()=>{clearInterval(interval)}
 
       }, []);
+
+    useEffect(()=>{
+        // Whenever the card flips, changes the image to display from the front to the back of the card
+        // The comparison is made against 8 because the card should change at 90deg and the final position has a 10deg offset already
+        if(extraYRotation.toFixed(1) % 18 === 8){
+            setDisplayImage(prev => prev === arcanaImage ? cardBackground : arcanaImage)
+        }
+    },[extraYRotation])
 
     const styles = StyleSheet.create({
         // // Starting position
@@ -43,7 +59,7 @@ export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas
             transform: [
                 {skewX: `${animatedValue*5}deg`}, 
                 {skewY: `${animatedValue*5}deg`},
-                {rotateY: `${animatedValue*10}deg`},
+                {rotateY: `${(extraYRotation + animatedValue)*10}deg`},
                 {rotateZ: `${705 - animatedValue*720}deg`}
             ],
             marginBottom: 100 - animatedValue*100,
@@ -68,7 +84,7 @@ export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas
             <>
             <Image
             style={styles.img}
-            source={arcana}
+            source={displayImage}
             />
             <View style={{
                 position: 'absolute',
