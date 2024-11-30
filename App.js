@@ -29,7 +29,7 @@ export default function App() {
 
     // TODO: REMOVE THIS RETURN AFTER TESTING (OR MOVE IT TO THE PROPER SCREEN)
     return(
-        <AnimatedArcana delayContent={true} delayBackground={false}>
+        <AnimatedArcana arcana="Fool" delayContent={true} delayBackground={false}>
             <HoveringPersona personaImage={{uri: "https://megatenwiki.com/images/thumb/b/b3/P3_Orpheus_Artwork.png/599px-P3_Orpheus_Artwork.png"}}/>
         </AnimatedArcana>
     )
