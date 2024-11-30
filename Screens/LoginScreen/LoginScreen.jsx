@@ -9,16 +9,18 @@ export const LoginScreen = () => {
     const [isReturningUser, setIsReturningUser] = useState(true)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [alert, setAlert] = useState("")
 
     const toggleScreen = () => { 
         setEmail("")
         setPassword("")
+        setConfirmPassword("")
         setIsReturningUser(prev => !prev)}
 
     const loginAttempt = async() => {
         setAlert("")
-        const validation = areFieldsValid(email, password)
+        const validation = areFieldsValid(email, password, password)
         
         if(!validation.success){
             setAlert(validation.message)
@@ -34,7 +36,7 @@ export const LoginScreen = () => {
 
     const registerAttempt = async() => {
         setAlert("")
-        const validation = areFieldsValid(email, password)
+        const validation = areFieldsValid(email, password, confirmPassword)
         
         if(!validation.success){
             setAlert(validation.message)
@@ -75,6 +77,18 @@ export const LoginScreen = () => {
                         secureTextEntry={true}
                         />
                     </View>
+                    {
+                        !isReturningUser &&
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.inputLabel}>Confirm password</Text>
+                            <TextInput
+                            style={styles.inputField}
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.nativeEvent.text)}
+                            secureTextEntry={true}
+                            />
+                        </View>
+                    }
                     <View style={styles.btnContainer}>
                         <Button
                             title={isReturningUser ? "Login" : "Register"}

@@ -59,7 +59,7 @@ const isEmailValid = (email) => {
 }
 
 // Checks all fields and returns a success boolean value and a message
-const areFieldsValid = (email, password) => {
+const areFieldsValid = (email, password, confirmPassword) => {
     // Creating the response object to return
     let response = {
         success: false,
@@ -82,10 +82,22 @@ const areFieldsValid = (email, password) => {
         return response
     }
     
-    // Last, checks the password field
+    // Last, checks the password fields
     if(!password || password?.trim() == ""){
         response.success = false,
         response.message = "Please enter a password"
+
+        return response
+    }
+    if(!confirmPassword || confirmPassword?.trim() == ""){
+        response.success = false,
+        response.message = "Please confirm your password"
+
+        return response
+    }
+    if(confirmPassword !== password){
+        response.success = false
+        response.message = "Passwords do not match"
 
         return response
     }
