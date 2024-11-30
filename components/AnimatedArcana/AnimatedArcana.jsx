@@ -57,6 +57,7 @@ export const AnimatedArcana = ({children, arcana = "Fool", background = require(
         // },
         img: {
             transform: [
+                // animatedValue will increase from 0 to 1, so we multiply it by a scaling factor
                 {skewX: `${animatedValue*5}deg`}, 
                 {skewY: `${animatedValue*5}deg`},
                 {rotateY: `${(extraYRotation + animatedValue)*10}deg`},

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { View, Image } from 'react-native'
 
-export const TestChildrenForArcana = () => {
+export const HoveringPersona = ({personaImage}) => {
 
     const [xPos, setXPos] = useState({value: 0, direction: true})
 
@@ -42,11 +42,11 @@ export const TestChildrenForArcana = () => {
             alignItems: 'center',
         }}>
             <Image
-                source={{uri: "https://megatenwiki.com/images/thumb/b/b3/P3_Orpheus_Artwork.png/599px-P3_Orpheus_Artwork.png"}}
+                source={personaImage}
                 style={{
                     marginTop: 100 - xPos.value,
                     marginLeft: 100,
-                    width: 300,
+                    width: 200,
                     height: 400,
                     resizeMode: 'contain',
                 }}
