@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { firebaseErrors } from "../../utilities/firebaseErrors";
 
 
 // Function to log in a user
@@ -16,7 +17,7 @@ const signIn = async(email, password) => {
     }
     catch(e){
         response.success = false
-        response.message = e.message
+        response.message = firebaseErrors[e.code] || e.message
     }
     return response
 }
@@ -44,7 +45,7 @@ const signUp = async(email, password) => {
     }
     catch(e){
         response.success = false
-        response.message = e.message
+        response.message = firebaseErrors[e.code] || e.message
     }
     return response
 }

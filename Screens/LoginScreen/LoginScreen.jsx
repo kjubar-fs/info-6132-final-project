@@ -13,9 +13,12 @@ export const LoginScreen = () => {
     const [alert, setAlert] = useState("")
 
     const toggleScreen = () => { 
+        // resets the UI
+        setAlert("")
         setEmail("")
         setPassword("")
         setConfirmPassword("")
+        // then toggles the form
         setIsReturningUser(prev => !prev)}
 
     const loginAttempt = async() => {
