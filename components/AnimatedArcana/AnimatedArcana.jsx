@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
 
 // TODO: CLEAR THE DEFAULT PROPS FOR arcana AND background AFTER TESTING
-export const AnimatedArcana = ({children, arcana = {uri: "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043"}, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+export const AnimatedArcana = ({children, arcana = require("../../assets/arcanas/Fool.webp"), background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const [animatedValue, setAnimatedValue] = useState(0)
     const [showContent, setShowContent] = useState(!delayContent)
@@ -49,6 +49,9 @@ export const AnimatedArcana = ({children, arcana = {uri: "https://static.wikia.n
             marginBottom: 100 - animatedValue*100,
             marginRight: animatedValue*900 - 800,
             zIndex: 100,
+            width: 150,
+            height: 200,
+            resizeMode: 'contain',
         },
         wrapper: {
             flex: 1,
@@ -66,9 +69,6 @@ export const AnimatedArcana = ({children, arcana = {uri: "https://static.wikia.n
             <Image
             style={styles.img}
             source={arcana}
-            width={150}
-            height={200}
-            resizeMode="contain"
             />
             <View style={{
                 position: 'absolute',
