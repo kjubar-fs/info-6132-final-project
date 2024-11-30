@@ -12,11 +12,11 @@ export const AnimatedArcana = () => {
             if(animatedValue < 1){
                 setAnimatedValue(prev => {
                     return prev < 1 ? prev + 0.01 : prev
-            })
+                })
             }
         },10)
 
-        return ()=>{interval}
+        return ()=>{clearInterval(interval)}
 
       }, []);
 
