@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, ImageBackground } from "react-native";
 
-export const AnimatedArcana = () => {
-    const testImg = "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043"
-
+export const AnimatedArcana = ({children, arcana = "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043", background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const [animatedValue, setAnimatedValue] = useState(0)
+    const [showContent, setShowContent] = useState(!delayContent)
+    const [showBackground, setShowBackground] = useState(!delayBackground)
 
     useEffect(() => {
         const interval = setInterval(()=>{
-            if(animatedValue < 1){
-                setAnimatedValue(prev => {
-                    return prev < 1 ? prev + 0.01 : prev
-                })
-            }
+            setAnimatedValue(prev => {
+                if(prev < 1){
+                    return prev + 0.01
+                }
+                else{
+                    setShowBackground(true)
+                    setShowContent(true)
+                    return prev
+                }
+            })
         },10)
 
         return ()=>{clearInterval(interval)}
@@ -42,25 +47,40 @@ export const AnimatedArcana = () => {
             ],
             marginBottom: 100 - animatedValue*100,
             marginRight: animatedValue*900 - 800,
+            zIndex: 100,
         }
     })
 
 
     return(
-        <View style={{
+        <ImageBackground 
+        source={background}
+        style={{
             flex: 1,
             width: '100%',
             height: '100%',
             justifyContent: 'center',
             alignItems: 'center',
+            zIndex: -100,
         }}>
             <Image
             style={styles.img}
-            source={{uri: testImg}}
+            source={{uri: arcana}}
             width={150}
             height={200}
             resizeMode="contain"
             />
-        </View>
+            <View style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                zIndex: 200,
+            }}>
+                {
+                    showContent &&
+                    children
+                }
+            </View>
+        </ImageBackground>
     )
 }
