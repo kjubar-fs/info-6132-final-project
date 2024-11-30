@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
 
-export const AnimatedArcana = ({children, arcana = "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043", background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+export const AnimatedArcana = ({children, arcana = {uri: "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043"}, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const [animatedValue, setAnimatedValue] = useState(0)
     const [showContent, setShowContent] = useState(!delayContent)
@@ -48,24 +48,23 @@ export const AnimatedArcana = ({children, arcana = "https://static.wikia.nocooki
             marginBottom: 100 - animatedValue*100,
             marginRight: animatedValue*900 - 800,
             zIndex: 100,
-        }
-    })
-
-
-    return(
-        <ImageBackground 
-        source={background}
-        style={{
+        },
+        wrapper: {
             flex: 1,
             width: '100%',
             height: '100%',
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: -100,
-        }}>
+        }
+    })
+
+    const content = () => {
+        return(
+            <>
             <Image
             style={styles.img}
-            source={{uri: arcana}}
+            source={arcana}
             width={150}
             height={200}
             resizeMode="contain"
@@ -81,6 +80,26 @@ export const AnimatedArcana = ({children, arcana = "https://static.wikia.nocooki
                     children
                 }
             </View>
-        </ImageBackground>
+            </>
+        )
+    }
+
+
+    return(
+        <>
+        { showBackground &&
+            <ImageBackground 
+            source={background}
+            style={styles.wrapper}>
+                {content()}
+            </ImageBackground>
+        }
+        {
+            !showBackground &&
+            <View style={styles.wrapper}>
+                {content()}
+            </View>
+        }
+        </>
     )
 }
