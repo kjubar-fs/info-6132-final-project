@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
 
+// TODO: CLEAR THE DEFAULT PROPS FOR arcana AND background AFTER TESTING
 export const AnimatedArcana = ({children, arcana = {uri: "https://static.wikia.nocookie.net/megamitensei/images/5/53/Fool-0.png/revision/latest?cb=20160404201043"}, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const [animatedValue, setAnimatedValue] = useState(0)
