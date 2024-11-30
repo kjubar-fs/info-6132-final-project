@@ -11,7 +11,7 @@ export default StyleSheet.create({
     iconContainer: {
         padding: 5,
 
-        backgroundColor: "black",
+        backgroundColor: "#0B090B",
 
         transform: [{rotate: "-4deg"}],
     },
@@ -26,5 +26,6 @@ export default StyleSheet.create({
     value: {
         fontSize: 18,
         fontWeight: "800",
+        color: "white",
     },
 });
