@@ -20,7 +20,7 @@ export default LoginScreenStyles = StyleSheet.create({
     formContainer: {
         width: '80%',
         alignItems: 'center',
-        backgroundColor: "#F0F0F0A0",
+        backgroundColor: "#F0F0F0D0",
         borderRadius: 10,
         padding: 10,
     },
