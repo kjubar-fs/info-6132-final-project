@@ -1,6 +1,7 @@
 {
     "Morgana": {
         "Zorro": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/2/2d/P5X_Zorro.png",
             "inherits": "Wind",
             "level": 1,
             "arcana": "Magician",
@@ -73,6 +74,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Diego": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/6/68/Diego.png",
             "inherits": "Wind",
             "level": "inherit",
             "arcana": "Magician",
@@ -113,6 +115,7 @@
     },
     "Ryuji": {
         "Captain Kidd": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/6/6b/P5X_Captain_Kidd.png",
             "inherits": "Electric",
             "level": 4,
             "arcana": "Chariot",
@@ -183,6 +186,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "William": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/4/40/P5RWilliam.png",
             "inherits": "Electric",
             "level": "inherit",
             "arcana": "Chariot",
@@ -222,6 +226,7 @@
     },
     "Ann": {
         "Carmen": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/6/69/P5X_Carmen.png",
             "inherits": "Fire",
             "level": 5,
             "arcana": "Lovers",
@@ -288,6 +293,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Célestine": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/b/b8/P5RCelestine.png",
             "inherits": "Fire",
             "level": "inherit",
             "arcana": "Lovers",
@@ -325,6 +331,7 @@
     },
     "Yusuke": {
         "Goemon": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/f/f2/P5X_Goemon.png",
             "inherits": "Ice",
             "level": 15,
             "arcana": "Emperor",
@@ -393,6 +400,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Gorokichi": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/4/46/P5RGorokichi.png",
             "inherits": "Ice",
             "level": "inherit",
             "arcana": "Emperor",
@@ -431,6 +439,7 @@
     },
     "Makoto": {
         "Johanna": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/2/21/P5_Johanna.png",
             "inherits": "Nuclear",
             "level": 21,
             "arcana": "Priestess",
@@ -464,6 +473,7 @@
             "trait": "Gaia Pact"
         },
         "Anat": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/7/7e/Sentinel-Transforming-Johanna-Anat-Figure%28Anat%29.jpg",
             "inherits": "Nuclear",
             "level": "inherit",
             "arcana": "Priestess",
@@ -499,6 +509,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Agnes": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/f/f5/AgnesP5R.png",
             "inherits": "Nuclear",
             "level": "inherit",
             "arcana": "Priestess",
@@ -537,6 +548,7 @@
     },
     "Futaba": {
         "Necronomicon": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/1/1e/P5_Necronomicon.png",
             "inherits": "Almighty",
             "level": 31,
             "arcana": "Hermit",
@@ -584,6 +596,7 @@
             "trait": "Explosive Scheme"
         },
         "Al Azif": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/f/f2/Al_Azif.png",
             "inherits": "Almighty",
             "level": "inherit",
             "arcana": "Hermit",
@@ -611,6 +624,7 @@
     },
     "Haru": {
         "Milady": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/4/40/P5milady.png",
             "inherits": "Psy",
             "level": 36,
             "arcana": "Empress",
@@ -673,6 +687,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Lucy": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/c/ce/LucyP5R.png",
             "inherits": "Psy",
             "level": "inherit",
             "arcana": "Empress",
@@ -708,6 +723,7 @@
     },
     "Akechi": {
         "Robin Hood": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/a/a8/Robin_Hood_P5R.png",
             "inherits": "Almighty",
             "level": 45,
             "arcana": "Justice",
@@ -734,6 +750,7 @@
             "trait": "Tactical Spirit"
         },
         "Loki": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/2/2c/Loki_Artwork.png",
             "inherits": "Curse",
             "level": 75,
             "arcana": "Justice",
@@ -753,7 +770,7 @@
             "trait": "Tactical Spirit",
             "note": "Unlocked during the third semester"
         },
-        "Herward": {
+        "Hereward": {
             "inherits": "Curse",
             "level": "inherit",
             "arcana": "Justice",
@@ -777,6 +794,7 @@
     },
     "Yoshizawa": {
         "Cendrillon": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/1/1d/P5RCendrillon.png",
             "inherits": "Bless",
             "level": 75,
             "arcana": "Faith",
@@ -797,6 +815,7 @@
             "trait": "Veil of Midnight"
         },
         "Vanadis": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/5/5b/Vanadis.png",
             "inherits": "Bless",
             "level": "inherit",
             "arcana": "Faith",
@@ -819,6 +838,7 @@
             "note": "Evolves at confidant Rank 10"
         },
         "Ella": {
+            "image": "https://static.wikia.nocookie.net/megamitensei/images/7/77/P5R_Ella.png",
             "inherits": "Bless",
             "level": "inherit",
             "arcana": "Faith",
