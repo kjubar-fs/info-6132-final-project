@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
 import { cardImage } from "../../utilities/arcanasImages";
 
-// TODO: CLEAR THE DEFAULT PROPS FOR arcana AND background AFTER TESTING
 export const AnimatedArcana = ({children, arcana, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const cardBackground = cardImage["CardBack"]
