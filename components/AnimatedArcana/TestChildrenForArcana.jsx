@@ -9,12 +9,13 @@ export const TestChildrenForArcana = () => {
             alignItems: 'center',
         }}>
             <Image
-                source={require('../../assets/takeYourTime.png')}
+                source={{uri: "https://megatenwiki.com/images/thumb/b/b3/P3_Orpheus_Artwork.png/599px-P3_Orpheus_Artwork.png"}}
                 style={{
                     marginTop: 100,
                     marginLeft: 100,
                     width: 300,
-                    height: 300,
+                    height: 400,
+                    resizeMode: 'contain',
                 }}
             />
         </View>
