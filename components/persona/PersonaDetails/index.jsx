@@ -8,7 +8,7 @@ import styles from "./styles";
 
 export function PersonaDetails({ name, details }) {
     return (
-        <ScrollView style={styles.container} contentContainerStyle={styles.scrollContainer}>
+        <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <View style={styles.gapContainer}>
                 <Text>{name}</Text>
 
@@ -45,7 +45,7 @@ export function PersonaDetails({ name, details }) {
             </View>
 
             {details.item &&
-                <View style={{gap: 10}}>
+                <View style={styles.gapContainer}>
                     <Text>Execution Items</Text>
 
                     <ItemDetail item={details.item} skillCard={details.skillCard} />
@@ -53,7 +53,7 @@ export function PersonaDetails({ name, details }) {
                     <ItemDetail item={details.itemr} skillCard={details.skillCard} isRare />
                 </View>}
 
-            <View style={{gap: 10}}>
+            <View style={styles.gapContainer}>
                 <Text>Skills</Text>
 
                 {Object.keys(details.skills).map((skillName, ix) => {
