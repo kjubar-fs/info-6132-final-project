@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import { View, Text, Image } from "react-native";
 
 // TODO: replace this with data from API
@@ -5,7 +7,6 @@ import itemData from "../../../dummyData/ItemDataRoyal.json";
 
 import { itemIcons } from "../../../utils/imageMaps";
 import styles from "./styles";
-import { useRef } from "react";
 
 export function ItemDetail({ item, skillCard, isRare }) {
     const details = itemData[item];
