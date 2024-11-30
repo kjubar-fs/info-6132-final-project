@@ -26,6 +26,5 @@ export default StyleSheet.create({
     value: {
         fontSize: 18,
         fontWeight: "800",
-        color: "white",
     },
 });
