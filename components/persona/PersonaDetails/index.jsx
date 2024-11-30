@@ -1,5 +1,10 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
+import { StatusBar } from "expo-status-bar";
+
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
+import { useNavigation } from "@react-navigation/native";
 
 import { ItemDetail } from "../ItemDetail";
 import { Affinity } from "../Affinity";
@@ -7,25 +12,38 @@ import { Affinity } from "../Affinity";
 import styles from "./styles";
 
 export function PersonaDetails({ name, details }) {
+    const navigation = useNavigation();
+
+    const hasNote = details.note || details.max || details.dlc;
+
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-            <View style={styles.gapContainer}>
-                <Text>{name}</Text>
+            <StatusBar style="light" />
 
-                <Text>Arcana: {details.arcana}</Text>
+            <View style={styles.headerContainer}>
+                <View style={styles.nameContainer}>
+                    <Text style={styles.name}>{name} <Text style={styles.nameDivider}>•</Text> <Text style={styles.trait}>{details.trait}</Text></Text>
+                </View>
 
-                <Text>Trait: {details.trait}</Text>
+                <View style={styles.levelContainer}>
+                    <Text style={styles.levelLabel}>Base Level <Text style={styles.level}>{details.level === "inherit" ? "inherited at evolution" : details.level}</Text></Text>
+                </View>
 
-                <Text>Base Level: {details.level === "inherit" ? "inherited at evolution" : details.level}</Text>
+                {hasNote &&
+                    <View style={styles.noteContainer}>
+                        {details.note &&
+                            <Text style={styles.note}>{details.note}</Text>}
 
-                {details.note &&
-                    <Text>{details.note}</Text>}
+                        {details.max &&
+                            <Text style={styles.note}>Unlocked at rank 10 of the {details.arcana} confidant</Text>}
 
-                {details.max &&
-                    <Text>Unlocked at rank 10 of the {details.arcana} confidant</Text>}
-
-                {details.dlc &&
-                    <Text>Requires DLC</Text>}
+                        {details.dlc &&
+                            <Text style={styles.note}>Requires DLC</Text>}
+                    </View>}
+                
+                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
+                    <MaterialIcons name="keyboard-backspace" size={34} color="white" />
+                </TouchableOpacity>
             </View>
 
             <View style={{alignSelf: "center", flexDirection: "row"}}>
@@ -38,7 +56,8 @@ export function PersonaDetails({ name, details }) {
                 />
             </View>
 
-            <View style={[styles.gapContainer, styles.affinityContainer]}>
+            <View style={styles.affinityContainer}>
+                <View style={styles.affinityBackground} />
                 {details.elems.map((affinity, ix) => (
                     <Affinity key={ix} elementIx={ix} value={affinity} />
                 ))}
