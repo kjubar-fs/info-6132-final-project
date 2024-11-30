@@ -96,3 +96,21 @@ export const itemIcons = {
         },
     },
 };
+
+export const skillIcons = {
+    "ailment": require("../assets/skills/ailment.png"),
+    "almighty": require("../assets/skills/almighty.png"),
+    "bless": require("../assets/skills/bless.png"),
+    "curse": require("../assets/skills/curse.png"),
+    "electric": require("../assets/skills/electric.png"),
+    "fire": require("../assets/skills/fire.png"),
+    "gun": require("../assets/skills/gun.png"),
+    "healing": require("../assets/skills/healing.png"),
+    "ice": require("../assets/skills/ice.png"),
+    "nuclear": require("../assets/skills/nuclear.png"),
+    "passive": require("../assets/skills/passive.png"),
+    "phys": require("../assets/skills/phys.png"),
+    "psy": require("../assets/skills/psy.png"),
+    "support": require("../assets/skills/support.png"),
+    "wind": require("../assets/skills/wind.png"),
+};
