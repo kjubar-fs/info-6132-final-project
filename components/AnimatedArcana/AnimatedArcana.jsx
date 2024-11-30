@@ -31,7 +31,7 @@ export const AnimatedArcana = () => {
         // imgEnd: {
         //     transform: [{skewX: '5deg'}, {skewY: '5deg'}, {rotateY: '10deg'}, {rotateZ: '-15deg'}],
         //     marginBottom: 0,
-        //     marginRight: 50,
+        //     marginRight: 100,
         // },
         img: {
             transform: [
@@ -41,7 +41,7 @@ export const AnimatedArcana = () => {
                 {rotateZ: `${705 - animatedValue*720}deg`}
             ],
             marginBottom: 100 - animatedValue*100,
-            marginRight: animatedValue*850 - 800,
+            marginRight: animatedValue*900 - 800,
         }
     })
 
