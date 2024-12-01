@@ -30,10 +30,10 @@ const getFavouritesForUser = async(uid) => {
     const docSnap = await getDoc(docRef);
     
     if (docSnap.exists()) {
-      favs = [...docSnap.data().favourites];
+        favs = docSnap.data().favourites;
     } else {
-      // docSnap.data() will be undefined in this case
-      console.debug("Document not found");
+        // docSnap.data() will be undefined in this case
+        console.debug("Document not found");
     }
 
     return favs
