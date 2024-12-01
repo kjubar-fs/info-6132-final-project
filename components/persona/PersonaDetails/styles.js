@@ -123,4 +123,33 @@ export default StyleSheet.create({
 
         transform: [{rotate: "1deg"}],
     },
+
+    itemContainerOuter: {
+        width: "91%",
+        marginTop: 20,
+        padding: 10,
+        
+        backgroundColor: "white",
+
+        transform: [{rotate: "-2deg"}, {skewX: "3deg"}],
+    },
+
+    itemContainerMid: {
+        padding: 10,
+
+        backgroundColor: "black",
+    },
+
+    itemContainerInner: {
+        margin: 7,
+        gap: 20,
+        
+        transform: [{rotate: "2deg"}, {skewX: "-3deg"}],
+    },
+
+    itemTitle: {
+        fontSize: 21,
+        fontWeight: "700",
+        color: "white",
+    },
 });

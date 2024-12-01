@@ -64,12 +64,16 @@ export function PersonaDetails({ name, details }) {
             </View>
 
             {details.item &&
-                <View style={styles.gapContainer}>
-                    <Text>Execution Items</Text>
+                <View style={styles.itemContainerOuter}>
+                    <View style={styles.itemContainerMid}>
+                        <View style={styles.itemContainerInner}>
+                            <Text style={styles.itemTitle}>Execution Items</Text>
 
-                    <ItemDetail item={details.item} skillCard={details.skillCard} />
-                    
-                    <ItemDetail item={details.itemr} skillCard={details.skillCard} isRare />
+                            <ItemDetail item={details.item} skillCard={details.skillCard} />
+                        
+                            <ItemDetail item={details.itemr} skillCard={details.skillCard} isRare />
+                        </View>
+                    </View>
                 </View>}
 
             <View style={styles.gapContainer}>

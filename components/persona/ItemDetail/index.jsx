@@ -17,10 +17,10 @@ export function ItemDetail({ item, skillCard, isRare }) {
             <View style={styles.itemNameContainer}>
                 <Image source={itemIcon.current} style={{width: 60, height: 20}} resizeMode="contain" />
 
-                <Text>{item}</Text>
+                <Text style={[styles.text, styles.itemName]}>{item}</Text>
             </View>
 
-            {!skillCard && <Text>{details.description}</Text>}
+            {!skillCard && <Text style={styles.text}>{details.description}</Text>}
         </View>
     );
 }

@@ -10,4 +10,14 @@ export default StyleSheet.create({
         alignItems: "center",
         gap: 6,
     },
+
+    itemName: {
+        fontSize: 19,
+        fontWeight: "600",
+    },
+
+    text: {
+        fontSize: 17,
+        color: "white",
+    },
 });
