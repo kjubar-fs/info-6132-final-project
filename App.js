@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { auth } from './config/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-
 import { NavigationContainer } from '@react-navigation/native';
 
 import { Animated, useAnimatedValue } from 'react-native';
@@ -18,6 +17,7 @@ import { AppLoader } from './components/AppLoader';
 export default function App() {
     const [loading, setLoading] = useState(true);
     const [userAuth, setUserAuth] = useState(undefined) 
+    const [favourites, setFavourites] = useState(undefined)
 
     const fadeAnim = useAnimatedValue(1);
 
@@ -59,8 +59,8 @@ export default function App() {
     // Otherwise, it keeps the usual app flow
     return (
         <NavigationContainer>
-            <AppLoader onLoaded={fadeOutLoading} />
-            <HomeScreen logout={logoutUser} />
+            <AppLoader onLoaded={fadeOutLoading} setFavourites={setFavourites} />
+            <HomeScreen logout={logoutUser} favourites={favourites} setFavourites={setFavourites}/>
             {loading &&
                 <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
                     <LoadingScreen />

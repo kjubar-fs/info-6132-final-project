@@ -15,38 +15,29 @@ import { SkillDetail } from "../SkillDetail";
 import styles from "./styles";
 import { useEffect, useState } from "react";
 
-export function PersonaDetails({ name, details }) {
+export function PersonaDetails({ name, details, favourites, setFavourites }) {
     const navigation = useNavigation();
 
-    // Getting the list of favourites and the current status of this Persona
-    const [favourites, setFavourites] = useState(undefined)
-    const [isFav, setIsFav] = useState(undefined)
+    // Checks the current status of this Persona
+    const [isFav, setIsFav] = useState(favourites.includes(name) ? true : false)
 
-    useEffect(()=>{
-        // Loading the favourites data and allowing the user to add or remove the Persona from there
-        (async()=>{
-            // Gets the list of favourites
-            const favs = await getFavouritesForUser(auth.currentUser.uid)
-            setFavourites(favs)
-            // Checks if this persona is already there
-            if(favs.includes(name)){
-                setIsFav(true)
-            }
-            else{
-                setIsFav(false)
-            }
-        })()
-    },[])
 
     const handleFavouritePress = async() => {
         if(isFav){
             await removeFavourtiesForUser(auth.currentUser.uid, name)
+            await updateLocalState()
             setIsFav(false)
         }
         else{
             await addFavouritesForUser(auth.currentUser.uid, name)
+            await updateLocalState()
             setIsFav(true)
         }
+    }
+
+    const updateLocalState = async() => {
+        const favs = await getFavouritesForUser(auth.currentUser.uid)
+        setFavourites(favs)
     }
 
 

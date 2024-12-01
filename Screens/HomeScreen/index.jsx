@@ -9,7 +9,7 @@ import { FavouritesScreen } from "../FavouritesScreen/FavouritesScreen";
 
 const Stack = createStackNavigator();
 
-export function HomeScreen({ logout }) {
+export function HomeScreen({ logout, favourites, setFavourites }) {
     return (
         // TODO: hide header on all screens, make custom back buttons for personas and party screens
         <Stack.Navigator
@@ -31,7 +31,7 @@ export function HomeScreen({ logout }) {
 
             <Stack.Screen
                 name="PersonaDetailScreen"
-                component={PersonaDetailScreen}
+                children={() => <PersonaDetailScreen favourites={favourites} setFavourites={setFavourites}/>}
                 options={({ route }) => ({
                     headerTitle: route.params.personaName,
                     headerShown: false,
@@ -54,7 +54,7 @@ export function HomeScreen({ logout }) {
 
             <Stack.Screen
                 name="FavouritesScreen"
-                component={FavouritesScreen}
+                children={()=> <FavouritesScreen favourites={favourites}/>}
             />
         </Stack.Navigator>
     );
