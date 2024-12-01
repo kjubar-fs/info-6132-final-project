@@ -124,30 +124,42 @@ export default StyleSheet.create({
         transform: [{rotate: "1deg"}],
     },
 
-    itemContainerOuter: {
+    borderedContainerOuter: {
         width: "91%",
         marginTop: 20,
         padding: 10,
         
         backgroundColor: "white",
-
-        transform: [{rotate: "-2deg"}, {skewX: "3deg"}],
     },
 
-    itemContainerMid: {
+    borderedContainerMid: {
         padding: 10,
 
         backgroundColor: "black",
     },
 
-    itemContainerInner: {
+    borderedContainerInner: {
         margin: 7,
         gap: 20,
-        
+    },
+
+    itemContainerTransform: {
+        transform: [{rotate: "-2deg"}, {skewX: "3deg"}],
+    },
+
+    itemContainerUntransform: {
         transform: [{rotate: "2deg"}, {skewX: "-3deg"}],
     },
 
-    itemTitle: {
+    skillsContainerTransform: {
+        transform: [{rotate: "1deg"}, {skewY: "-2deg"}],
+    },
+
+    skillsContainerUntransform: {
+        transform: [{rotate: "-1deg"}, {skewY: "2deg"}],
+    },
+
+    categoryTitle: {
         fontSize: 21,
         fontWeight: "700",
         color: "white",

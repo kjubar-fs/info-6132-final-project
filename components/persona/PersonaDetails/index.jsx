@@ -6,8 +6,9 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import { useNavigation } from "@react-navigation/native";
 
-import { ItemDetail } from "../ItemDetail";
 import { Affinity } from "../Affinity";
+import { ItemDetail } from "../ItemDetail";
+import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
 
@@ -64,10 +65,10 @@ export function PersonaDetails({ name, details }) {
             </View>
 
             {details.item &&
-                <View style={styles.itemContainerOuter}>
-                    <View style={styles.itemContainerMid}>
-                        <View style={styles.itemContainerInner}>
-                            <Text style={styles.itemTitle}>Execution Items</Text>
+                <View style={[styles.borderedContainerOuter, styles.itemContainerTransform]}>
+                    <View style={styles.borderedContainerMid}>
+                        <View style={[styles.borderedContainerInner, styles.itemContainerUntransform]}>
+                            <Text style={styles.categoryTitle}>Execution Items</Text>
 
                             <ItemDetail item={details.item} skillCard={details.skillCard} />
                         
@@ -76,27 +77,16 @@ export function PersonaDetails({ name, details }) {
                     </View>
                 </View>}
 
-            <View style={styles.gapContainer}>
-                <Text>Skills</Text>
+            <View style={[styles.borderedContainerOuter, styles.skillsContainerTransform]}>
+                <View style={styles.borderedContainerMid}>
+                    <View style={[styles.borderedContainerInner, styles.skillsContainerUntransform]}>
+                        <Text style={styles.categoryTitle}>Skills</Text>
 
-                {Object.keys(details.skills).map((skillName, ix) => {
-                    let level = details.skills[skillName];
-                    if (level === 0) {
-                        // innate skills
-                        level = "Innate";
-                    } else if (level === 100) {
-                        // rank 10 skills
-                        level = "Unlocked via Rank 10 evolution";
-                    } else if (level === 101) {
-                        // third awakening skills
-                        level = "Unlocked via Third Awakening";
-                    } else if (level >= 110) {
-                        // Futaba confidant skills
-                        level = `Unlocked at confidant Rank ${(level % 10) + 1}`;
-                    }
-
-                    return <Text key={ix}>{level} - {skillName}</Text>;
-                })}
+                        {Object.keys(details.skills).map((skillName, ix) => {
+                            return <SkillDetail key={ix} skillName={skillName} level={details.skills[skillName]} />;
+                        })}
+                    </View>
+                </View>
             </View>
         </ScrollView>
     );
