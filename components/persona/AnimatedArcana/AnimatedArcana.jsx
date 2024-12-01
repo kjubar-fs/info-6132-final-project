@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
-import { cardImage } from "../../utilities/arcanasImages";
+import { cardImages } from "../../../utils/imageMaps";
 
 export const AnimatedArcana = ({children, arcana, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
-    const cardBackground = cardImage["CardBack"]
-    const arcanaImage = cardImage[arcana]
+    const cardBackground = cardImages["CardBack"]
+    const arcanaImage = cardImages[arcana]
 
     const [animatedValue, setAnimatedValue] = useState(0)
     const [extraYRotation, setExtraYRotation] = useState(0)
