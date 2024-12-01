@@ -23,8 +23,10 @@ export default StyleSheet.create({
         transform: [{rotate: "-3deg"}],
     },
 
-    headerExtraPadding: {
-        paddingTop: safeAreaTopPadding + 175,
+    headerContent: {
+        paddingBottom: 20,
+
+        transform: [{rotate: "3deg"}],
     },
 
     nameContainer: {

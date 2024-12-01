@@ -12,7 +12,7 @@ import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
 
-export function PersonaDetails({ name, details, showBackButton = true, extraTopPadding = false }) {
+export function PersonaDetails({ name, details, headerContent = undefined }) {
     const navigation = useNavigation();
 
     const hasNote = details.note || details.max || details.dlc;
@@ -23,7 +23,10 @@ export function PersonaDetails({ name, details, showBackButton = true, extraTopP
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <StatusBar style="light" />
 
-            <View style={[styles.headerContainer, extraTopPadding ? styles.headerExtraPadding : undefined]}>
+            <View style={styles.headerContainer}>
+                {headerContent !== undefined &&
+                    <View style={styles.headerContent}>{headerContent}</View>}
+
                 <View style={styles.nameContainer}>
                     <Text style={styles.name}>{name} <Text style={styles.nameDivider}>•</Text> <Text style={styles.trait}>{details.trait}</Text></Text>
                 </View>
@@ -44,10 +47,9 @@ export function PersonaDetails({ name, details, showBackButton = true, extraTopP
                             <Text style={styles.note}>Requires DLC</Text>}
                     </View>}
                 
-                {showBackButton &&
-                    <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
-                        <MaterialIcons name="keyboard-backspace" size={34} color="white" />
-                    </TouchableOpacity>}
+                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
+                    <MaterialIcons name="keyboard-backspace" size={34} color="white" />
+                </TouchableOpacity>
             </View>
 
             <View style={styles.imageContainer}>
