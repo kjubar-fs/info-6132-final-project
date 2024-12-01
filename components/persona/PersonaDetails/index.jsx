@@ -46,11 +46,11 @@ export function PersonaDetails({ name, details }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={{alignSelf: "center", flexDirection: "row"}}>
+            <View style={styles.imageContainer}>
                 <Image
                     source={details.image}
                     placeholder={require("../../../assets/loading/takeYourTime.png")}
-                    style={{flex: 1, height: 250}}
+                    style={styles.image}
                     contentFit="contain"
                     placeholderContentFit="contain"
                 />

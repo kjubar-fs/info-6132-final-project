@@ -6,6 +6,7 @@ const windowWidth = Dimensions.get("window").width;
 
 export default StyleSheet.create({
     scrollContainer: {
+        alignItems: "center",
         paddingBottom: safeAreaBottomPadding,
         gap: 20,
     },
@@ -13,7 +14,6 @@ export default StyleSheet.create({
     headerContainer: {
         position: "relative",
         width: windowWidth + 50,     // make width wider than screen for rotation
-        alignSelf: "center",
         marginTop: -75,                         // set margin and padding to show transparent above screen if the user scrolls up
         paddingTop: safeAreaTopPadding + 100,
         alignItems: "center",
@@ -93,6 +93,15 @@ export default StyleSheet.create({
         left: 45,
 
         transform: [{rotate: "3deg"}],
+    },
+
+    imageContainer: {
+        flexDirection: "row",
+    },
+
+    image: {
+        flex: 1,
+        height: 250,
     },
 
     affinityContainer: {
