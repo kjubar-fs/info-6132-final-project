@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Image, StyleSheet, View, ImageBackground } from "react-native";
 import { cardImages } from "../../../utils/imageMaps";
 
-export const AnimatedArcana = ({children, arcana, background = require('../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+export const AnimatedArcana = ({children, arcana, background = require('../../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
 
     const cardBackground = cardImages["CardBack"]
     const arcanaImage = cardImages[arcana]
