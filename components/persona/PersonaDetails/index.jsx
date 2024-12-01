@@ -12,7 +12,7 @@ import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
 
-export function PersonaDetails({ name, details, showBackButton = true }) {
+export function PersonaDetails({ name, details, showBackButton = true, extraTopPadding = false }) {
     const navigation = useNavigation();
 
     const hasNote = details.note || details.max || details.dlc;
@@ -23,7 +23,7 @@ export function PersonaDetails({ name, details, showBackButton = true }) {
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <StatusBar style="light" />
 
-            <View style={styles.headerContainer}>
+            <View style={[styles.headerContainer, extraTopPadding ? styles.headerExtraPadding : undefined]}>
                 <View style={styles.nameContainer}>
                     <Text style={styles.name}>{name} <Text style={styles.nameDivider}>•</Text> <Text style={styles.trait}>{details.trait}</Text></Text>
                 </View>
