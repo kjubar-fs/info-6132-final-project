@@ -18,7 +18,7 @@ export function PartyDetailScreen() {
         <BackgroundWrapper>
             <ScrollView style={{flex: 1}} contentContainerStyle={{gap: 20}} showsVerticalScrollIndicator={false}>
                 {Object.keys(personas).map((personaName) => (
-                    <PersonaDetails key={personaName} name={personaName} details={partyData[partyMemberName][personaName]} />
+                    <PersonaDetails key={personaName} name={personaName} details={partyData[partyMemberName][personaName]} showBackButton={false} />
                 ))}
             </ScrollView>
         </BackgroundWrapper>

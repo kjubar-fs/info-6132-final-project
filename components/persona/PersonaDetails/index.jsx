@@ -12,7 +12,7 @@ import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
 
-export function PersonaDetails({ name, details }) {
+export function PersonaDetails({ name, details, showBackButton = true }) {
     const navigation = useNavigation();
 
     const hasNote = details.note || details.max || details.dlc;
@@ -44,9 +44,10 @@ export function PersonaDetails({ name, details }) {
                             <Text style={styles.note}>Requires DLC</Text>}
                     </View>}
                 
-                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
-                    <MaterialIcons name="keyboard-backspace" size={34} color="white" />
-                </TouchableOpacity>
+                {showBackButton &&
+                    <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
+                        <MaterialIcons name="keyboard-backspace" size={34} color="white" />
+                    </TouchableOpacity>}
             </View>
 
             <View style={styles.imageContainer}>
