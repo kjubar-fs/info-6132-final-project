@@ -8,7 +8,7 @@ import { PartyDetailScreen } from "../PartyDetailScreen";
 
 const Stack = createStackNavigator();
 
-export function HomeScreen() {
+export function HomeScreen({ logout }) {
     return (
         // TODO: hide header on all screens, make custom back buttons for personas and party screens
         <Stack.Navigator
@@ -16,11 +16,12 @@ export function HomeScreen() {
         >
             <Stack.Screen
                 name="ClockScreen"
-                component={ClockScreen}
                 options={{
                     headerShown: false,
                 }}
-            />
+            >
+                {() => <ClockScreen logout={logout} />}
+            </Stack.Screen>
 
             <Stack.Screen
                 name="PersonasScreen"
@@ -32,6 +33,7 @@ export function HomeScreen() {
                 component={PersonaDetailScreen}
                 options={({ route }) => ({
                     headerTitle: route.params.personaName,
+                    headerShown: false,
                 })}
             />
 
@@ -45,6 +47,7 @@ export function HomeScreen() {
                 component={PartyDetailScreen}
                 options={({ route }) => ({
                     headerTitle: route.params.partyMemberName,
+                    headerShown: false,
                 })}
             />
         </Stack.Navigator>

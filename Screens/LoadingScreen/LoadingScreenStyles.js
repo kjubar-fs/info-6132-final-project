@@ -1,6 +1,6 @@
 import { Platform, StyleSheet } from "react-native";
 
-export default LoadingScreenStyles = StyleSheet.create({
+export default StyleSheet.create({
     background: {
         flex: 1,
         justifyContent: 'center',

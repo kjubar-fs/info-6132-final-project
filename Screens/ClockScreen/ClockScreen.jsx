@@ -7,8 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 import { PhanSite } from "../../components/PhanSite/PhanSite";
 
 import styles from "./ClockScreenStyles";
+import { ButtonWithImage } from "../../components/common/ButtonWithImage/ButtonWithImage";
 
-export const ClockScreen = () => {
+export const ClockScreen = ({logout}) => {
 
     // The hour in which the theme will change between day and night
     const SUNSET_HOUR = 18
@@ -95,6 +96,12 @@ export const ClockScreen = () => {
                 source={backgroundImage}
                 alt="Calendar Background Image"
             >
+                <ButtonWithImage 
+                    label={"Log Out"}
+                    imgUrl={isDaylight ? require('../../assets/jokerRunningLeft.webp') : require('../../assets/akechiRunningLeft.png')}
+                    theme={isDaylight ? "light" : "dark"}
+                    funcToCall={logout}
+                    />
                 <View style={styles.textContainer}>
                     <View style={styles.daggerRow}>
                         <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{month}/{day}</Text>
