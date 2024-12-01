@@ -13,7 +13,7 @@ export default StyleSheet.create({
 
     skillName: {
         flex: 1,
-        
+
         fontSize: 19,
         fontWeight: "600",
     },
@@ -21,5 +21,11 @@ export default StyleSheet.create({
     text: {
         fontSize: 17,
         color: "white",
+    },
+
+    divider: {
+        height: 1,
+        
+        backgroundColor: "white",
     },
 });

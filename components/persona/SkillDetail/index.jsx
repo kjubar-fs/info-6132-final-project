@@ -7,6 +7,8 @@ import { skillIcons } from "../../../utils/imageMaps";
 import styles from "./styles";
 
 export function SkillDetail({ skillName, level }) {
+    const skillData = skillsData[skillName];
+
     let shortLevel = level < 100;
 
     if (level === 0) {
@@ -26,7 +28,7 @@ export function SkillDetail({ skillName, level }) {
     return (
         <View style={styles.container}>
             <View style={styles.skillNameContainer}>
-                <Image source={skillIcons[skillsData[skillName].element]} style={{width: 60, height: 20}} resizeMode="contain" />
+                <Image source={skillIcons[skillData.element]} style={{width: 60, height: 20}} resizeMode="contain" />
 
                 <Text style={[styles.text, styles.skillName]}>{skillName}</Text>
 
@@ -36,6 +38,10 @@ export function SkillDetail({ skillName, level }) {
 
             {!shortLevel &&
                 <Text style={styles.text}>{level}</Text>}
+
+            <View style={styles.divider} />
+            
+            <Text style={styles.text}>{skillData.effect}</Text>
         </View>
     );
 }
