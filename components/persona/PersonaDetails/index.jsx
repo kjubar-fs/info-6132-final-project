@@ -1,19 +1,54 @@
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { StatusBar } from "expo-status-bar";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import { useNavigation } from "@react-navigation/native";
+import { auth } from "../../../config/firebase";
+import { getFavouritesForUser, addFavouritesForUser, removeFavourtiesForUser } from "../../../services/database/firebaseDb";
 
 import { Affinity } from "../Affinity";
 import { ItemDetail } from "../ItemDetail";
 import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
+import { useEffect, useState } from "react";
 
 export function PersonaDetails({ name, details }) {
     const navigation = useNavigation();
+
+    // Getting the list of favourites and the current status of this Persona
+    const [favourites, setFavourites] = useState(undefined)
+    const [isFav, setIsFav] = useState(undefined)
+
+    useEffect(()=>{
+        // Loading the favourites data and allowing the user to add or remove the Persona from there
+        (async()=>{
+            // Gets the list of favourites
+            const favs = await getFavouritesForUser(auth.currentUser.uid)
+            setFavourites(favs)
+            // Checks if this persona is already there
+            if(favs.includes(name)){
+                setIsFav(true)
+            }
+            else{
+                setIsFav(false)
+            }
+        })()
+    },[])
+
+    const handleFavouritePress = async() => {
+        if(isFav){
+            await removeFavourtiesForUser(auth.currentUser.uid, name)
+            setIsFav(false)
+        }
+        else{
+            await addFavouritesForUser(auth.currentUser.uid, name)
+            setIsFav(true)
+        }
+    }
+
 
     const hasNote = details.note || details.max || details.dlc;
 
@@ -88,6 +123,21 @@ export function PersonaDetails({ name, details }) {
                     </View>
                 </View>
             </View>
+
+            {/* ADDING FAVS BUTTON */}
+            {
+                favourites &&
+                <Pressable 
+                style={[styles.borderedContainerOuter, styles.itemContainerTransform]}
+                onPress={handleFavouritePress}
+                >
+                    <View style={styles.borderedContainerMid}>
+                        <View style={[styles.borderedContainerInner, styles.itemContainerUntransform]}>
+                        <Text style={[styles.categoryTitle, {textAlign: 'center'}]}>{isFav ? "Remove from Favourites" : "Add to Favourites"}</Text>
+                        </View>
+                    </View>
+                </Pressable>
+            }
         </ScrollView>
     );
 }
