@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { useState } from "react";
 
 import { useRoute } from "@react-navigation/native";
 
@@ -7,20 +7,24 @@ import partyData from "../../dummyData/PartyDataRoyal.json";
 
 import { BackgroundWrapper } from "../../components/persona/BackgroundWrapper";
 import { PersonaDetails } from "../../components/persona/PersonaDetails";
+import { PersonaSwitcher } from "../../components/persona/PersonaSwitcher";
 
 export function PartyDetailScreen() {
     // get party member data
     const route = useRoute();
     const partyMemberName = route.params.partyMemberName;
     const personas = partyData[partyMemberName];
+    const totalPersonas = Object.keys(personas).length;
+    const personaName = Object.keys(personas)[selectedPersona];
+    const [selectedPersona, setSelectedPersona] = useState(0);
 
     return (
         <BackgroundWrapper>
-            <ScrollView style={{flex: 1}} contentContainerStyle={{gap: 20}} showsVerticalScrollIndicator={false}>
-                {Object.keys(personas).map((personaName) => (
-                    <PersonaDetails key={personaName} name={personaName} details={partyData[partyMemberName][personaName]} showBackButton={false} />
-                ))}
-            </ScrollView>
+            <PersonaDetails
+                name={personaName}
+                details={partyData[partyMemberName][personaName]}
+                headerContent={<PersonaSwitcher value={selectedPersona} max={totalPersonas - 1} partyMember={partyMemberName} onValueChange={setSelectedPersona} />}
+            />
         </BackgroundWrapper>
     );
 }
