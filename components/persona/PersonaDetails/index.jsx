@@ -16,6 +16,8 @@ export function PersonaDetails({ name, details }) {
     const navigation = useNavigation();
 
     const hasNote = details.note || details.max || details.dlc;
+    // tweak skills display if skill list is very long (like party personas)
+    const longSkills = Object.keys(details.skills).length >= 10;
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
@@ -77,9 +79,9 @@ export function PersonaDetails({ name, details }) {
                     </View>
                 </View>}
 
-            <View style={[styles.borderedContainerOuter, styles.skillsContainerTransform]}>
+            <View style={[styles.borderedContainerOuter, longSkills ? styles.skillsContainerTransformLong : styles.skillsContainerTransformShort]}>
                 <View style={styles.borderedContainerMid}>
-                    <View style={[styles.borderedContainerInner, styles.skillsContainerUntransform]}>
+                    <View style={[styles.borderedContainerInner, longSkills ? styles.skillsContainerUntransformLong : styles.skillsContainerUntransformShort]}>
                         <Text style={styles.categoryTitle}>Skills</Text>
 
                         {Object.keys(details.skills).map((skillName, ix) => {
