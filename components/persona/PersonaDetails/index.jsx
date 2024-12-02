@@ -15,11 +15,11 @@ import { SkillDetail } from "../SkillDetail";
 import styles from "./styles";
 import { useEffect, useState } from "react";
 
-export function PersonaDetails({ name, details, favourites, setFavourites }) {
+export function PersonaDetails({ name, details, favourites = false, setFavourites }) {
     const navigation = useNavigation();
 
     // Checks the current status of this Persona
-    const [isFav, setIsFav] = useState(favourites.includes(name) ? true : false)
+    const [isFav, setIsFav] = useState(favourites && favourites.includes(name) ? true : false)
 
 
     const handleFavouritePress = async() => {
