@@ -14,12 +14,12 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
         // TODO: hide header on all screens, make custom back buttons for personas and party screens
         <Stack.Navigator
             initialRouteName="ClockScreen"
+            screenOptions={{
+                headerShown: false,
+            }}
         >
             <Stack.Screen
                 name="ClockScreen"
-                options={{
-                    headerShown: false,
-                }}
             >
                 {() => <ClockScreen logout={logout} />}
             </Stack.Screen>
@@ -32,27 +32,16 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
             <Stack.Screen
                 name="PersonaDetailScreen"
                 children={() => <PersonaDetailScreen favourites={favourites} setFavourites={setFavourites}/>}
-                options={({ route }) => ({
-                    headerTitle: route.params.personaName,
-                    headerShown: false,
-                })}
             />
 
             <Stack.Screen
                 name="PartyScreen"
                 component={PartyScreen}
-                options={{
-                    headerShown: false,
-                }}
             />
 
             <Stack.Screen
                 name="PartyDetailScreen"
                 component={PartyDetailScreen}
-                options={({ route }) => ({
-                    headerTitle: route.params.partyMemberName,
-                    headerShown: false,
-                })}
             />
 
             <Stack.Screen
