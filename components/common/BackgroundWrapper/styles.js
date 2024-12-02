@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     screenWrapper: {
@@ -14,5 +14,6 @@ export default StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+        width: Dimensions.get("window").width,
     },
 });
