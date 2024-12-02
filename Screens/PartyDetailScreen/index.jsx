@@ -15,8 +15,8 @@ export function PartyDetailScreen() {
     const partyMemberName = route.params.partyMemberName;
     const personas = partyData[partyMemberName];
     const totalPersonas = Object.keys(personas).length;
-    const personaName = Object.keys(personas)[selectedPersona];
     const [selectedPersona, setSelectedPersona] = useState(0);
+    const personaName = Object.keys(personas)[selectedPersona];
 
     return (
         <BackgroundWrapper>
