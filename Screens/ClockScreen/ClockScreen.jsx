@@ -8,6 +8,7 @@ import { PhanSite } from "../../components/PhanSite/PhanSite";
 
 import styles from "./ClockScreenStyles";
 import { ButtonWithImage } from "../../components/common/ButtonWithImage/ButtonWithImage";
+import { BigImageButton } from "../../components/common/BigImageButton/BigImageButton";
 
 export const ClockScreen = ({logout}) => {
 
@@ -115,18 +116,28 @@ export const ClockScreen = ({logout}) => {
                     <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
 
-                <View style={{gap: 20}}>
-                    <TouchableOpacity onPress={() => navigation.navigate("PersonasScreen")}>
-                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Personas</Text>
-                    </TouchableOpacity>
+                <View style={{gap: 20, flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Personas"
+                    image={require("../../assets/menuButtons/Personas.png")}
+                    onPress={() => navigation.navigate("PersonasScreen")}
+                    />
 
-                    <TouchableOpacity onPress={() => navigation.navigate("PartyScreen")}>
-                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Party</Text>
-                    </TouchableOpacity>
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Party"
+                    image={require("../../assets/menuButtons/Party.png")}
+                    onPress={() => navigation.navigate("PartyScreen")}
+                    />
 
-                    <TouchableOpacity onPress={() => navigation.navigate("FavouritesScreen")}>
-                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Favourites</Text>
-                    </TouchableOpacity>
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Favourites"
+                    image={require("../../assets/menuButtons/Favourites.png")}
+                    onPress={() => navigation.navigate("FavouritesScreen")}
+                    />
+
                 </View>
 
                 <PhanSite/>
