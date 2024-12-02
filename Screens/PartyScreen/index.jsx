@@ -1,24 +1,33 @@
-import { Text, FlatList, TouchableOpacity } from "react-native";
+import { Text, FlatList, TouchableOpacity, ImageBackground } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
 // TODO: replace this with data from API
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
-import { safeAreaBottomPadding } from "../../utils/constants";
+import { safeAreaBottomPadding, safeAreaTopPadding } from "../../utils/constants";
 
 export function PartyScreen() {
+    return (
+        // TODO: find a better background for party/persona list
+        <ImageBackground source={require("../../assets/chainsBg.webp")} style={{flex: 1}}>
+            <FlatList
+                data={Object.keys(partyData)}
+                renderItem={({ item }) => (
+                    <PartyMember key={item} name={item} />
+                )}
+                contentContainerStyle={{gap: 10, paddingHorizontal: 10, paddingTop: safeAreaTopPadding, paddingBottom: safeAreaBottomPadding}}
+            />
+        </ImageBackground>
+    );
+}
+
+function PartyMember({ name }) {
     const navigation = useNavigation();
 
     return (
-        <FlatList
-            data={Object.keys(partyData)}
-            renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate("PartyDetailScreen", { partyMemberName: item })} key={item}>
-                    <Text>{item}</Text>
-                </TouchableOpacity>
-            )}
-            contentContainerStyle={{gap: 10, padding: 10, paddingBottom: safeAreaBottomPadding}}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("PartyDetailScreen", { partyMemberName: name })}>
+            <Text>{name}</Text>
+        </TouchableOpacity>
     );
 }
