@@ -12,12 +12,14 @@ import { LoginScreen } from './Screens/LoginScreen/LoginScreen';
 import { HomeScreen } from './Screens/HomeScreen';
 import { LoadingScreen } from './Screens/LoadingScreen/LoadingScreen';
 
+import { ApiProvider } from './hooks/useApi';
 import { AppLoader } from './components/AppLoader';
 
 export default function App() {
     const [loading, setLoading] = useState(true);
     const [userAuth, setUserAuth] = useState(undefined) 
     const [favourites, setFavourites] = useState(undefined)
+    const [apiData, setApiData] = useState({})
 
     const fadeAnim = useAnimatedValue(1);
 
@@ -59,12 +61,14 @@ export default function App() {
     // Otherwise, it keeps the usual app flow
     return (
         <NavigationContainer>
-            <AppLoader onLoaded={fadeOutLoading} setFavourites={setFavourites} />
-            <HomeScreen logout={logoutUser} favourites={favourites} setFavourites={setFavourites}/>
-            {loading &&
-                <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
-                    <LoadingScreen />
-                </Animated.View>}
+            <AppLoader onLoaded={fadeOutLoading} setFavourites={setFavourites} setApiData={setApiData} />
+            <ApiProvider apiData={apiData}>
+                <HomeScreen logout={logoutUser} favourites={favourites} setFavourites={setFavourites}/>
+                {loading &&
+                    <Animated.View style={{position: "absolute", width: "100%", height: "100%", opacity: fadeAnim}}>
+                        <LoadingScreen />
+                    </Animated.View>}
+            </ApiProvider>
         </NavigationContainer>
     );
 }
