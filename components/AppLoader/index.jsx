@@ -5,7 +5,6 @@ import { getAllDataFor } from "../../services/api/apiRequests";
 
 export function AppLoader({ onLoaded, setFavourites, setApiData }) {
     useEffect(() => {
-        // TODO: do API loading here
         (async () => {
             // getting all the data from the API
             const partyData = await getAllDataFor("Party")
@@ -27,11 +26,6 @@ export function AppLoader({ onLoaded, setFavourites, setApiData }) {
             // set the flag once the data has been loaded
             onLoaded();
         })();
-
-        // TODO: remove this
-        // setTimeout(() => {
-        //     onLoaded();
-        // }, 2500);
     }, []);
 
     return <></>;
