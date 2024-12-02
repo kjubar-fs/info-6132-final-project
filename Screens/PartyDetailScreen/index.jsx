@@ -5,7 +5,7 @@ import { useRoute } from "@react-navigation/native";
 // TODO: replace this with data from API
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
-import { BackgroundWrapper } from "../../components/persona/BackgroundWrapper";
+import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 import { PersonaDetails } from "../../components/persona/PersonaDetails";
 import { PersonaSwitcher } from "../../components/persona/PersonaSwitcher";
 
