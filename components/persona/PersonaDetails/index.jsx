@@ -82,7 +82,7 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
 
             <View style={styles.imageContainer}>
                 <AnimatedArcana 
-                    personaImg={details.image !== undefined ? {uri: details.image} : require("../../../assets/loading/takeYourTime.png")}
+                    personaImg={details.image !== undefined ? {uri: details.image} : require("../../../assets/personaPlaceholder.png")}
                     arcana={details.arcana}
                     delayContent={true}
                 />
