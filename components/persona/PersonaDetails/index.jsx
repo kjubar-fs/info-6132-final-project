@@ -53,13 +53,20 @@ export function PersonaDetails({ name, details, headerContent = undefined }) {
             </View>
 
             <View style={styles.imageContainer}>
-                <Image
-                    source={details.image}
-                    placeholder={require("../../../assets/loading/takeYourTime.png")}
-                    style={styles.image}
-                    contentFit="contain"
-                    placeholderContentFit="contain"
-                />
+                {details.image !== undefined &&
+                    <Image
+                        source={details.image}
+                        placeholder={require("../../../assets/loading/takeYourTime.png")}
+                        style={styles.image}
+                        contentFit="contain"
+                        placeholderContentFit="contain"
+                    />}
+                {details.image === undefined &&
+                    <Image
+                        source={require("../../../assets/loading/takeYourTime.png")}
+                        style={styles.image}
+                        contentFit="contain"
+                    />}
             </View>
 
             <View style={styles.affinityContainer}>
