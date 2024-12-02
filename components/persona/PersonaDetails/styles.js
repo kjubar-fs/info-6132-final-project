@@ -146,27 +146,45 @@ export default StyleSheet.create({
     },
 
     itemContainerTransform: {
-        transform: [{rotate: "-2deg"}, {skewX: "3deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "-2deg" : "-3deg"},
+            {skewX: "3deg"},
+        ],
     },
 
     itemContainerUntransform: {
-        transform: [{rotate: "2deg"}, {skewX: "-3deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "2deg" : "3deg"},
+            {skewX: "-3deg"},
+        ],
     },
 
     skillsContainerTransformShort: {
-        transform: [{rotate: "1deg"}, {skewY: "-2deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "1deg" : "2.5deg"},
+            {skewY: Platform.OS === "ios" ? "-2deg" : "-4deg"},
+        ],
     },
 
     skillsContainerUntransformShort: {
-        transform: [{rotate: "-1deg"}, {skewY: "2deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "-1deg" : "-2.5deg"},
+            {skewY: Platform.OS === "ios" ? "2deg" : "4deg"},
+        ],
     },
 
     skillsContainerTransformLong: {
-        transform: [{rotate: "0.5deg"}, {skewY: "-2deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "0.5deg" : "1.25deg"},
+            {skewY: Platform.OS === "ios" ? "-2deg" : "-1deg"},
+        ],
     },
 
     skillsContainerUntransformLong: {
-        transform: [{rotate: "-0.5deg"}, {skewY: "2deg"}],
+        transform: [
+            {rotate: Platform.OS === "ios" ? "-0.5deg" : "-1.25deg"},
+            {skewY: Platform.OS === "ios" ? "2deg" : "1deg"},
+        ],
     },
 
     categoryTitle: {
