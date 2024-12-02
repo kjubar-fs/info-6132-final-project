@@ -15,7 +15,8 @@ import { SkillDetail } from "../SkillDetail";
 import styles from "./styles";
 import { useEffect, useState } from "react";
 
-export function PersonaDetails({ name, details, favourites = false, setFavourites }) {
+export function PersonaDetails({ name, details, favourites = false, setFavourites, headerContent = undefined }) {
+
     const navigation = useNavigation();
 
     // Checks the current status of this Persona
@@ -42,12 +43,17 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
 
 
     const hasNote = details.note || details.max || details.dlc;
+    // tweak skills display if skill list is very long (like party personas)
+    const longSkills = Object.keys(details.skills).length >= 10;
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <StatusBar style="light" />
 
             <View style={styles.headerContainer}>
+                {headerContent !== undefined &&
+                    <View style={styles.headerContent}>{headerContent}</View>}
+
                 <View style={styles.nameContainer}>
                     <Text style={styles.name}>{name} <Text style={styles.nameDivider}>•</Text> <Text style={styles.trait}>{details.trait}</Text></Text>
                 </View>
@@ -74,13 +80,20 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
             </View>
 
             <View style={styles.imageContainer}>
-                <Image
-                    source={details.image}
-                    placeholder={require("../../../assets/loading/takeYourTime.png")}
-                    style={styles.image}
-                    contentFit="contain"
-                    placeholderContentFit="contain"
-                />
+                {details.image !== undefined &&
+                    <Image
+                        source={details.image}
+                        placeholder={require("../../../assets/loading/takeYourTime.png")}
+                        style={styles.image}
+                        contentFit="contain"
+                        placeholderContentFit="contain"
+                    />}
+                {details.image === undefined &&
+                    <Image
+                        source={require("../../../assets/loading/takeYourTime.png")}
+                        style={styles.image}
+                        contentFit="contain"
+                    />}
             </View>
 
             <View style={styles.affinityContainer}>
@@ -103,9 +116,9 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
                     </View>
                 </View>}
 
-            <View style={[styles.borderedContainerOuter, styles.skillsContainerTransform]}>
+            <View style={[styles.borderedContainerOuter, longSkills ? styles.skillsContainerTransformLong : styles.skillsContainerTransformShort]}>
                 <View style={styles.borderedContainerMid}>
-                    <View style={[styles.borderedContainerInner, styles.skillsContainerUntransform]}>
+                    <View style={[styles.borderedContainerInner, longSkills ? styles.skillsContainerUntransformLong : styles.skillsContainerUntransformShort]}>
                         <Text style={styles.categoryTitle}>Skills</Text>
 
                         {Object.keys(details.skills).map((skillName, ix) => {

@@ -23,8 +23,10 @@ export default StyleSheet.create({
         transform: [{rotate: "-3deg"}],
     },
 
-    gapContainer: {
-        gap: 10,
+    headerContent: {
+        paddingBottom: 20,
+
+        transform: [{rotate: "3deg"}],
     },
 
     nameContainer: {
@@ -151,12 +153,20 @@ export default StyleSheet.create({
         transform: [{rotate: "2deg"}, {skewX: "-3deg"}],
     },
 
-    skillsContainerTransform: {
+    skillsContainerTransformShort: {
         transform: [{rotate: "1deg"}, {skewY: "-2deg"}],
     },
 
-    skillsContainerUntransform: {
+    skillsContainerUntransformShort: {
         transform: [{rotate: "-1deg"}, {skewY: "2deg"}],
+    },
+
+    skillsContainerTransformLong: {
+        transform: [{rotate: "0.5deg"}, {skewY: "-2deg"}],
+    },
+
+    skillsContainerUntransformLong: {
+        transform: [{rotate: "-0.5deg"}, {skewY: "2deg"}],
     },
 
     categoryTitle: {
