@@ -6,10 +6,10 @@ import { useNavigation } from "@react-navigation/native";
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
 import { ListHeader } from "../../components/common/ListHeader";
+import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 
 import { partyImages } from "../../utils/imageMaps";
 import styles from "./styles";
-import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 
 export function PartyScreen() {
     return (
