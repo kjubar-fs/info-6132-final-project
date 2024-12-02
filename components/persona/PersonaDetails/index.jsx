@@ -1,45 +1,39 @@
-import { View, Text, ScrollView, TouchableOpacity, Pressable } from "react-native";
+import { useState } from "react";
+
+import { View, Text, ScrollView, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { StatusBar } from "expo-status-bar";
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
-import { useNavigation } from "@react-navigation/native";
 import { auth } from "../../../config/firebase";
 import { getFavouritesForUser, addFavouritesForUser, removeFavourtiesForUser } from "../../../services/database/firebaseDb";
 
+import { BackButton } from "../../common/BackButton";
 import { Affinity } from "../Affinity";
 import { ItemDetail } from "../ItemDetail";
 import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
-import { useEffect, useState } from "react";
 
 export function PersonaDetails({ name, details, favourites = false, setFavourites, headerContent = undefined }) {
-
-    const navigation = useNavigation();
-
     // Checks the current status of this Persona
-    const [isFav, setIsFav] = useState(favourites && favourites.includes(name) ? true : false)
+    const [isFav, setIsFav] = useState(favourites && favourites.includes(name) ? true : false);
 
-
-    const handleFavouritePress = async() => {
-        if(isFav){
-            await removeFavourtiesForUser(auth.currentUser.uid, name)
-            await updateLocalState()
-            setIsFav(false)
+    const handleFavouritePress = async () => {
+        if (isFav) {
+            await removeFavourtiesForUser(auth.currentUser.uid, name);
+            await updateLocalState();
+            setIsFav(false);
+        } else {
+            await addFavouritesForUser(auth.currentUser.uid, name);
+            await updateLocalState();
+            setIsFav(true);
         }
-        else{
-            await addFavouritesForUser(auth.currentUser.uid, name)
-            await updateLocalState()
-            setIsFav(true)
-        }
-    }
+    };
 
-    const updateLocalState = async() => {
-        const favs = await getFavouritesForUser(auth.currentUser.uid)
-        setFavourites(favs)
-    }
+    const updateLocalState = async () => {
+        const favs = await getFavouritesForUser(auth.currentUser.uid);
+        setFavourites(favs);
+    };
 
 
     const hasNote = details.note || details.max || details.dlc;
@@ -74,9 +68,7 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
                             <Text style={styles.note}>Requires DLC</Text>}
                     </View>}
                 
-                <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.75}>
-                    <MaterialIcons name="keyboard-backspace" size={34} color="white" />
-                </TouchableOpacity>
+                <BackButton style={styles.backBtn} />
             </View>
 
             <View style={styles.imageContainer}>
@@ -128,20 +120,17 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
                 </View>
             </View>
 
-            {/* ADDING FAVS BUTTON */}
-            {
-                favourites &&
-                <Pressable 
-                style={[styles.borderedContainerOuter, styles.itemContainerTransform]}
-                onPress={handleFavouritePress}
+            {favourites &&
+                <Pressable
+                    style={[styles.borderedContainerOuter, styles.itemContainerTransform]}
+                    onPress={handleFavouritePress}
                 >
                     <View style={styles.borderedContainerMid}>
                         <View style={[styles.borderedContainerInner, styles.itemContainerUntransform]}>
                         <Text style={[styles.categoryTitle, {textAlign: 'center'}]}>{isFav ? "Remove from Favourites" : "Add to Favourites"}</Text>
                         </View>
                     </View>
-                </Pressable>
-            }
+                </Pressable>}
         </ScrollView>
     );
 }
