@@ -41,6 +41,9 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
             <Stack.Screen
                 name="PartyScreen"
                 component={PartyScreen}
+                options={{
+                    headerShown: false,
+                }}
             />
 
             <Stack.Screen
