@@ -1,11 +1,11 @@
-import { Text, FlatList, ImageBackground, Pressable, Image, View } from "react-native";
+import { Text, FlatList, ImageBackground, Pressable, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
 // TODO: replace this with data from API
 import partyData from "../../dummyData/PartyDataRoyal.json";
 
-import { BackButton } from "../../components/common/BackButton";
+import { ListHeader } from "../../components/common/ListHeader";
 
 import { partyImages } from "../../utils/imageMaps";
 import styles from "./styles";
@@ -14,15 +14,7 @@ export function PartyScreen() {
     return (
         // TODO: find a better background for party/persona list
         <ImageBackground source={require("../../assets/chainsBg.webp")} style={styles.background}>
-            <View style={styles.headerOuter}>
-                <View style={styles.headerInner}>
-                    <BackButton />
-
-                    <Text style={styles.headerTitle}>Party Members</Text>
-
-                    <View style={styles.headerSpacer} />
-                </View>
-            </View>
+            <ListHeader title="Party Members" />
 
             <FlatList
                 data={Object.keys(partyData)}
