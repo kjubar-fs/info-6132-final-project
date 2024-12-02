@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Image, StyleSheet, View, ImageBackground } from "react-native";
+import { Image, Platform, StyleSheet, View } from "react-native";
 import { cardImages } from "../../../utils/imageMaps";
+import { HoveringPersona } from "../HoveringPersona/HoveringPersona";
 
-export const AnimatedArcana = ({children, arcana, background = require('../../../assets/chainsBg.webp'), delayContent = false, delayBackground = false}) => {
+export const AnimatedArcana = ({personaImg, arcana, delayContent = false}) => {
 
     const cardBackground = cardImages["CardBack"]
     const arcanaImage = cardImages[arcana]
@@ -10,7 +11,6 @@ export const AnimatedArcana = ({children, arcana, background = require('../../..
     const [animatedValue, setAnimatedValue] = useState(0)
     const [extraYRotation, setExtraYRotation] = useState(0)
     const [showContent, setShowContent] = useState(!delayContent)
-    const [showBackground, setShowBackground] = useState(!delayBackground)
     const [displayImage, setDisplayImage] = useState(arcanaImage)
 
     useEffect(() => {
@@ -20,10 +20,12 @@ export const AnimatedArcana = ({children, arcana, background = require('../../..
                     return prev + 0.01
                 }
                 else{
-                    setShowBackground(true)
                     setShowContent(true)
                     // starts rotating the card on its Y axis after completing the initial animation
-                    setExtraYRotation(prevY => prevY + 0.1)
+                    // Due to an issue with zIndex introduced in Expo 52, this feature has been limited in iOS
+                    if(Platform.OS === 'android'){
+                        setExtraYRotation(prevY => prevY + 0.1)
+                    }
                     return prev
                 }
             })
@@ -63,7 +65,7 @@ export const AnimatedArcana = ({children, arcana, background = require('../../..
                 {rotateZ: `${705 - animatedValue*720}deg`}
             ],
             marginBottom: 100 - animatedValue*100,
-            marginRight: animatedValue*900 - 800,
+            marginRight: animatedValue*1000 - 800,
             zIndex: 100,
             width: 150,
             height: 200,
@@ -71,17 +73,16 @@ export const AnimatedArcana = ({children, arcana, background = require('../../..
         },
         wrapper: {
             flex: 1,
-            width: '100%',
-            height: '100%',
+            // width: '100%',
+            height: 400,
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: -100,
         }
     })
 
-    const content = () => {
-        return(
-            <>
+    return(
+        <View style={styles.wrapper}>
             <Image
             style={styles.img}
             source={displayImage}
@@ -94,29 +95,9 @@ export const AnimatedArcana = ({children, arcana, background = require('../../..
             }}>
                 {
                     showContent &&
-                    children
+                    <HoveringPersona personaImage={personaImg}/>
                 }
             </View>
-            </>
-        )
-    }
-
-
-    return(
-        <>
-        { showBackground &&
-            <ImageBackground 
-            source={background}
-            style={styles.wrapper}>
-                {content()}
-            </ImageBackground>
-        }
-        {
-            !showBackground &&
-            <View style={styles.wrapper}>
-                {content()}
-            </View>
-        }
-        </>
+        </View>
     )
 }
