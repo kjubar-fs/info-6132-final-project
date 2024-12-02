@@ -9,11 +9,12 @@ import { ListHeader } from "../../components/common/ListHeader";
 
 import { partyImages } from "../../utils/imageMaps";
 import styles from "./styles";
+import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 
 export function PartyScreen() {
     return (
         // TODO: find a better background for party/persona list
-        <ImageBackground source={require("../../assets/chainsBg.webp")} style={styles.background}>
+        <BackgroundWrapper>
             <ListHeader title="Party Members" />
 
             <FlatList
@@ -23,7 +24,7 @@ export function PartyScreen() {
                 )}
                 contentContainerStyle={styles.listContainer}
             />
-        </ImageBackground>
+        </BackgroundWrapper>
     );
 }
 
