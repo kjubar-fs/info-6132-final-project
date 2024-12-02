@@ -8,6 +8,8 @@ export default StyleSheet.create({
     },
 
     headerOuter: {
+        marginBottom: 2,
+
         backgroundColor: "black",
         borderColor: "white",
         borderBottomWidth: 10,
