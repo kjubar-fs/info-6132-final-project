@@ -1,12 +1,13 @@
 import { View, Text, Image } from "react-native";
 
-// TODO: replace this with data from API
-import skillsData from "../../../dummyData/SkillDataRoyal.json";
+import { useApi } from "../../../hooks/useApi";
 
 import { skillIcons } from "../../../utils/imageMaps";
 import styles from "./styles";
 
 export function SkillDetail({ skillName, level }) {
+
+    const skillsData = useApi().skill
     const skillData = skillsData[skillName];
 
     let shortLevel = level < 100;
