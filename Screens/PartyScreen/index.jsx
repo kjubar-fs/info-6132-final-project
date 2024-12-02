@@ -2,13 +2,13 @@ import { Text, FlatList, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
-// TODO: replace this with data from API
-import partyData from "../../dummyData/PartyDataRoyal.json";
+import { useApi } from "../../hooks/useApi";
 
 import { safeAreaBottomPadding } from "../../utils/constants";
 
 export function PartyScreen() {
     const navigation = useNavigation();
+    const partyData = useApi().party
 
     return (
         <FlatList

@@ -3,13 +3,14 @@ import { useRoute } from "@react-navigation/native";
 import { BackgroundWrapper } from "../../components/persona/BackgroundWrapper";
 import { PersonaDetails } from "../../components/persona/PersonaDetails";
 
-// TODO: replace this with data from API
-import personaData from "../../dummyData/PersonaDataRoyal.json";
+import { useApi } from "../../hooks/useApi";
 
 export function PersonaDetailScreen({favourites, setFavourites}) {
     // get persona data
     const route = useRoute();
     const personaName = route.params.personaName;
+
+    const personaData = useApi().persona
     const persona = personaData[personaName];
 
     return (
