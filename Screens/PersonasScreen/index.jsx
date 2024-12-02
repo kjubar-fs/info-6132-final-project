@@ -2,8 +2,7 @@ import { Text, TouchableOpacity, FlatList } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
-// TODO: replace this with data from API
-import personaData from "../../dummyData/PersonaDataRoyal.json";
+import { useApi } from "../../hooks/useApi";
 
 import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 import { ListHeader } from "../../components/common/ListHeader";
@@ -12,6 +11,7 @@ import { safeAreaBottomPadding } from "../../utils/constants";
 
 export function PersonasScreen() {
     const navigation = useNavigation();
+    const personaData = useApi().persona;
 
     return (
         <BackgroundWrapper>

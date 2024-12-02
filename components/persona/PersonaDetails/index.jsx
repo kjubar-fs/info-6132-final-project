@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { View, Text, ScrollView, Pressable } from "react-native";
-import { Image } from "expo-image";
 import { StatusBar } from "expo-status-bar";
 
 import { auth } from "../../../config/firebase";
@@ -11,6 +10,7 @@ import { BackButton } from "../../common/BackButton";
 import { Affinity } from "../Affinity";
 import { ItemDetail } from "../ItemDetail";
 import { SkillDetail } from "../SkillDetail";
+import { AnimatedArcana } from "../AnimatedArcana/AnimatedArcana";
 
 import styles from "./styles";
 
@@ -72,20 +72,11 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
             </View>
 
             <View style={styles.imageContainer}>
-                {details.image !== undefined &&
-                    <Image
-                        source={details.image}
-                        placeholder={require("../../../assets/loading/takeYourTime.png")}
-                        style={styles.image}
-                        contentFit="contain"
-                        placeholderContentFit="contain"
-                    />}
-                {details.image === undefined &&
-                    <Image
-                        source={require("../../../assets/loading/takeYourTime.png")}
-                        style={styles.image}
-                        contentFit="contain"
-                    />}
+                <AnimatedArcana 
+                    personaImg={details.image !== undefined ? {uri: details.image} : require("../../../assets/personaPlaceholder.png")}
+                    arcana={details.arcana}
+                    delayContent={true}
+                />
             </View>
 
             <View style={styles.affinityContainer}>

@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import { useRoute } from "@react-navigation/native";
 
-// TODO: replace this with data from API
-import partyData from "../../dummyData/PartyDataRoyal.json";
+import { useApi } from "../../hooks/useApi";
 
 import { BackgroundWrapper } from "../../components/common/BackgroundWrapper";
 import { PersonaDetails } from "../../components/persona/PersonaDetails";
@@ -13,6 +12,7 @@ export function PartyDetailScreen() {
     // get party member data
     const route = useRoute();
     const partyMemberName = route.params.partyMemberName;
+    const partyData = useApi().party;
     const personas = partyData[partyMemberName];
     const totalPersonas = Object.keys(personas).length;
     const [selectedPersona, setSelectedPersona] = useState(0);
