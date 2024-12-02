@@ -1,5 +1,4 @@
-import { View } from "react-native";
-import { Image } from "expo-image";
+import { View, Image } from "react-native";
 
 import styles from "./styles";
 
