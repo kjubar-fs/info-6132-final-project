@@ -1,4 +1,4 @@
-import { Text, FlatList, ImageBackground, Pressable, Image } from "react-native";
+import { Text, FlatList, Pressable, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
