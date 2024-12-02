@@ -2,7 +2,8 @@ import { useState } from "react";
 import { View, Text, ImageBackground, TextInput, Pressable, Button } from "react-native";
 import { areFieldsValid, signIn, signUp } from "../../services/auth/firebaseAuth";
 import styles from "./LoginScreenStyles";
-
+import { initializeFavouritesForUser } from "../../services/database/firebaseDb";
+import { auth } from "../../config/firebase";
 
 export const LoginScreen = () => {
 
@@ -50,6 +51,9 @@ export const LoginScreen = () => {
         if(!registerResult.success){
             setAlert(registerResult.message)
             return
+        }
+        else{
+            await initializeFavouritesForUser(auth.currentUser.uid)
         }
     }
     

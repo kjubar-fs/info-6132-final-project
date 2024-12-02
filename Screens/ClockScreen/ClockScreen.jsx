@@ -123,6 +123,10 @@ export const ClockScreen = ({logout}) => {
                     <TouchableOpacity onPress={() => navigation.navigate("PartyScreen")}>
                         <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Party</Text>
                     </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => navigation.navigate("FavouritesScreen")}>
+                        <Text style={{fontSize: 20, textAlign: "center", color: date.getHours() < SUNSET_HOUR ? "black" : "white"}}>Favourites</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <PhanSite/>

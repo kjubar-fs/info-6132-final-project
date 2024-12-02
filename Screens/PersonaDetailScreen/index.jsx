@@ -6,7 +6,7 @@ import { PersonaDetails } from "../../components/persona/PersonaDetails";
 // TODO: replace this with data from API
 import personaData from "../../dummyData/PersonaDataRoyal.json";
 
-export function PersonaDetailScreen() {
+export function PersonaDetailScreen({favourites, setFavourites}) {
     // get persona data
     const route = useRoute();
     const personaName = route.params.personaName;
@@ -14,7 +14,7 @@ export function PersonaDetailScreen() {
 
     return (
         <BackgroundWrapper>
-            <PersonaDetails name={personaName} details={persona} />
+            <PersonaDetails name={personaName} details={persona} favourites={favourites} setFavourites={setFavourites} />
         </BackgroundWrapper>
     );
 }
