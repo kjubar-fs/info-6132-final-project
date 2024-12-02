@@ -3,14 +3,14 @@ import { View, Image } from 'react-native'
 
 export const HoveringPersona = ({personaImage}) => {
 
-    const [xPos, setXPos] = useState({value: 0, direction: true})
+    const [yPos, setYPos] = useState({value: 0, direction: true})
 
     const DELTA = 0.2
     const MARGIN = 10
 
     useEffect(()=>{
         const hover = setInterval(()=>{
-            setXPos(prev => {
+            setYPos(prev => {
                 if(prev.direction){
                     if(prev.value < MARGIN){
                         return { direction: prev.direction, value: prev.value + DELTA }
@@ -43,8 +43,9 @@ export const HoveringPersona = ({personaImage}) => {
         }}>
             <Image
                 source={personaImage}
+                placeholder={require("../../../assets/loading/takeYourTime.png")}
                 style={{
-                    marginTop: 100 - xPos.value,
+                    marginTop: 100 - yPos.value,
                     marginLeft: 100,
                     width: 200,
                     height: 400,

@@ -14,6 +14,7 @@ import { SkillDetail } from "../SkillDetail";
 
 import styles from "./styles";
 import { useEffect, useState } from "react";
+import { AnimatedArcana } from "../AnimatedArcana/AnimatedArcana";
 
 export function PersonaDetails({ name, details, favourites = false, setFavourites, headerContent = undefined }) {
 
@@ -80,20 +81,11 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
             </View>
 
             <View style={styles.imageContainer}>
-                {details.image !== undefined &&
-                    <Image
-                        source={details.image}
-                        placeholder={require("../../../assets/loading/takeYourTime.png")}
-                        style={styles.image}
-                        contentFit="contain"
-                        placeholderContentFit="contain"
-                    />}
-                {details.image === undefined &&
-                    <Image
-                        source={require("../../../assets/loading/takeYourTime.png")}
-                        style={styles.image}
-                        contentFit="contain"
-                    />}
+                <AnimatedArcana 
+                    personaImg={details.image !== undefined ? {uri: details.image} : require("../../../assets/loading/takeYourTime.png")}
+                    arcana={details.arcana}
+                    delayContent={true}
+                />
             </View>
 
             <View style={styles.affinityContainer}>
