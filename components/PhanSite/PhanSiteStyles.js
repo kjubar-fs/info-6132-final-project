@@ -3,7 +3,7 @@ import { Platform, StyleSheet } from "react-native";
 
 const widgetDimm = 300
 
-export default PhanSiteStyles = StyleSheet.create({
+export default StyleSheet.create({
     container: {
         marginTop: '50%',
         width: widgetDimm,

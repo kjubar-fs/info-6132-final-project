@@ -28,7 +28,7 @@ export const PhanSite = () => {
         <View style={styles.container}>
             <ImageBackground
                 style={styles.img}
-                source={require('../../assets/phan-site.png')}
+                source={require('../../assets/calendar/phan-site.png')}
             >
                 <View style={{...styles.fill, width: `${(battery/100)*59}%` }}>
                 </View>

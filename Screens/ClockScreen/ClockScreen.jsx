@@ -1,11 +1,14 @@
-import { View, ImageBackground, Text, Image, Platform, Pressable } from "react-native";
+import { View, ImageBackground, Text, Image, Platform, TouchableOpacity } from "react-native";
 
 import { useEffect, useState } from "react";
+
+import { useNavigation } from "@react-navigation/native";
 
 import { PhanSite } from "../../components/PhanSite/PhanSite";
 
 import styles from "./ClockScreenStyles";
 import { ButtonWithImage } from "../../components/common/ButtonWithImage/ButtonWithImage";
+import { BigImageButton } from "../../components/common/BigImageButton/BigImageButton";
 
 export const ClockScreen = ({logout}) => {
 
@@ -13,8 +16,8 @@ export const ClockScreen = ({logout}) => {
     const SUNSET_HOUR = 18
 
     // The background to be used based on the hour
-    const dayBackground = require('../../assets/calendar_day.webp')
-    const nightBackground = require('../../assets/calendar_night.jpg')
+    const dayBackground = require('../../assets/calendar/calendar_day.webp')
+    const nightBackground = require('../../assets/calendar/calendar_night.jpg')
 
     const [date, setDate] = useState(new Date())
     const [displayColon, setDisplayColon] = useState(true)
@@ -23,6 +26,8 @@ export const ClockScreen = ({logout}) => {
 
     // Array of weekdays to be used with Date().getDay()
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    const navigation = useNavigation()
 
     useEffect(()=>{
         // updates the time every minute
@@ -104,7 +109,7 @@ export const ClockScreen = ({logout}) => {
                     <View style={styles.daggerRow}>
                         <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{month}/{day}</Text>
                         <Image
-                            source={require('../../assets/calendarDagger.png')}
+                            source={require('../../assets/calendar/calendarDagger.png')}
                             style={styles.dagger}
                         />
                     </View>
@@ -112,6 +117,31 @@ export const ClockScreen = ({logout}) => {
                     <Text style={[styles.text, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].date]}>{weekday}</Text>
                     <Text style={[styles.hourText, {color: isDaylight ? 'black' : 'white'}, platformStyles[Platform.OS].hour]}>{hour}{displayColon ? ":" : " "}{minute}</Text>
                 </View>
+
+                <View style={{gap: 20, flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Personas"
+                    image={require("../../assets/menuButtons/Personas.png")}
+                    onPress={() => navigation.navigate("PersonasScreen")}
+                    />
+
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Party"
+                    image={require("../../assets/menuButtons/Party.png")}
+                    onPress={() => navigation.navigate("PartyScreen")}
+                    />
+
+                    <BigImageButton
+                    isDaylight={isDaylight}
+                    label="Favourites"
+                    image={require("../../assets/menuButtons/Favourites.png")}
+                    onPress={() => navigation.navigate("FavouritesScreen")}
+                    />
+
+                </View>
+
                 <PhanSite/>
             </ImageBackground>
         </View>

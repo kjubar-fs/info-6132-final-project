@@ -12,14 +12,14 @@ export const LoadingScreen = () => {
     return(
         <View style={styles.background}>
             <Image
-                source={require('../../assets/takeYourTime.png')}
+                source={require('../../assets/loading/takeYourTime.png')}
                 style={styles.splash}
                 contentFit="contain"
                 alt="Joker take your time"
             />
             
             <Image
-                source={require('../../assets/hat_p5_logo.gif')}
+                source={require('../../assets/loading/hat_p5_logo.gif')}
                 style={styles.loader}
                 contentFit="contain"
                 alt="Persona 5 Logo"

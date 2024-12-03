@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export default LoginScreenStyles = StyleSheet.create({
+export default StyleSheet.create({
     wrapper: {
         flex: 1,
         justifyContent: 'space-around',

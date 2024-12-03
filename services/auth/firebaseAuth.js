@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
-import { firebaseErrors } from "../../utilities/firebaseErrors";
+import { firebaseErrors } from "../../utils/firebaseErrors";
 
 
 // Function to log in a user

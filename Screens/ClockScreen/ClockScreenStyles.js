@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const daggerSize = 50
 
-export default ClockScreenStyles = StyleSheet.create({
+export default StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
