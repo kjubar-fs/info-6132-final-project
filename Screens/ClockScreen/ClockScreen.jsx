@@ -15,9 +15,14 @@ export const ClockScreen = ({logout}) => {
     // The hour in which the theme will change between day and night
     const SUNSET_HOUR = 18
 
+    // The background to be used based on the hour
+    const dayBackground = require('../../assets/calendar_day.webp')
+    const nightBackground = require('../../assets/calendar_night.jpg')
+
     const [date, setDate] = useState(new Date())
     const [displayColon, setDisplayColon] = useState(true)
     const [isDaylight, setIsDaylight] = useState(new Date().getHours() < SUNSET_HOUR ? true : false)
+    const [backgroundImage, setBackgroundImage] = useState(isDaylight ? dayBackground : nightBackground)
 
     // Array of weekdays to be used with Date().getDay()
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -32,9 +37,11 @@ export const ClockScreen = ({logout}) => {
             // Then checks if it's day/night already
             if(date.getHours() < SUNSET_HOUR){
                 setIsDaylight(true)
+                setBackgroundImage(dayBackground)
             }
             else{
                 setIsDaylight(false)
+                setBackgroundImage(nightBackground)
             }
         },1000 * 60)
 
@@ -63,11 +70,6 @@ export const ClockScreen = ({logout}) => {
     if(minute < 10){
         minute = '0' + minute
     }
-
-    // changing the background based on the time of the day
-    const backgroundImage = isDaylight ? 
-        require('../../assets/calendar/calendar_day.webp') :  
-        require('../../assets/calendar/calendar_night.jpg')
 
     // setting different typefaces based on the OS
     const platformStyles = {
