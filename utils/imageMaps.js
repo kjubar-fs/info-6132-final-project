@@ -142,3 +142,15 @@ export const cardImages = {
     "Councillor": require("../assets/arcanas/Councillor.webp"),
     "CardBack": require("../assets/arcanas/back.webp"),
 };
+
+export const partyImages = {
+    "Morgana": require("../assets/party/Morgana.png"),
+    "Ryuji": require("../assets/party/Ryuji.png"),
+    "Ann": require("../assets/party/Ann.png"),
+    "Yusuke": require("../assets/party/Yusuke.png"),
+    "Makoto": require("../assets/party/Makoto.png"),
+    "Futaba": require("../assets/party/Futaba.png"),
+    "Haru": require("../assets/party/Haru.png"),
+    "Akechi": require("../assets/party/Akechi.png"),
+    "Yoshizawa": require("../assets/party/Yoshizawa.png"),
+};

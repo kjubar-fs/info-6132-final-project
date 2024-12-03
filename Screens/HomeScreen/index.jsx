@@ -5,21 +5,19 @@ import { PersonasScreen } from "../PersonasScreen";
 import { PersonaDetailScreen } from "../PersonaDetailScreen";
 import { PartyScreen } from "../PartyScreen";
 import { PartyDetailScreen } from "../PartyDetailScreen";
-import { FavouritesScreen } from "../FavouritesScreen/FavouritesScreen";
 
 const Stack = createStackNavigator();
 
 export function HomeScreen({ logout, favourites, setFavourites }) {
     return (
-        // TODO: hide header on all screens, make custom back buttons for personas and party screens
         <Stack.Navigator
             initialRouteName="ClockScreen"
+            screenOptions={{
+                headerShown: false,
+            }}
         >
             <Stack.Screen
                 name="ClockScreen"
-                options={{
-                    headerShown: false,
-                }}
             >
                 {() => <ClockScreen logout={logout} />}
             </Stack.Screen>
@@ -32,10 +30,6 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
             <Stack.Screen
                 name="PersonaDetailScreen"
                 children={() => <PersonaDetailScreen favourites={favourites} setFavourites={setFavourites}/>}
-                options={({ route }) => ({
-                    headerTitle: route.params.personaName,
-                    headerShown: false,
-                })}
             />
 
             <Stack.Screen
@@ -46,15 +40,11 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
             <Stack.Screen
                 name="PartyDetailScreen"
                 component={PartyDetailScreen}
-                options={({ route }) => ({
-                    headerTitle: route.params.partyMemberName,
-                    headerShown: false,
-                })}
             />
 
             <Stack.Screen
                 name="FavouritesScreen"
-                children={()=> <FavouritesScreen favourites={favourites}/>}
+                children={()=> <PersonasScreen favourites={favourites}/>}
             />
         </Stack.Navigator>
     );

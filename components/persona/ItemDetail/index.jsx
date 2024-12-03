@@ -8,8 +8,7 @@ import { itemIcons } from "../../../utils/imageMaps";
 import styles from "./styles";
 
 export function ItemDetail({ item, skillCard, isRare }) {
-
-    const itemData = useApi().item
+    const itemData = useApi().item;
     const details = itemData[item];
     const itemIcon = useRef(getItemIcon(skillCard ? "skillCard" : details.type, isRare));
 
