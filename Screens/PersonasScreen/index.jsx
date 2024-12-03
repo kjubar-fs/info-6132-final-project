@@ -15,7 +15,7 @@ export function PersonasScreen({ favourites = undefined }) {
 
     return (
         <BackgroundWrapper>
-            <ListHeader title="Personas" />
+            <ListHeader title={favourites !== undefined ? "Favourites" : "Personas"} />
 
             <FlatList
                 data={favourites !== undefined ? favourites : Object.keys(personaData)}
