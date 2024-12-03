@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { View, Text, ScrollView, Pressable } from "react-native";
-import { StatusBar } from "expo-status-bar";
 
 import { auth } from "../../../config/firebase";
 import { getFavouritesForUser, addFavouritesForUser, removeFavourtiesForUser } from "../../../services/database/firebaseDb";
@@ -42,8 +41,6 @@ export function PersonaDetails({ name, details, favourites = false, setFavourite
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-            <StatusBar style="light" />
-
             <View style={styles.headerContainer}>
                 {headerContent !== undefined &&
                     <View style={styles.headerContent}>{headerContent}</View>}
