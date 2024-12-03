@@ -16,8 +16,8 @@ export const ClockScreen = ({logout}) => {
     const SUNSET_HOUR = 18
 
     // The background to be used based on the hour
-    const dayBackground = require('../../assets/calendar_day.webp')
-    const nightBackground = require('../../assets/calendar_night.jpg')
+    const dayBackground = require('../../assets/calendar/calendar_day.webp')
+    const nightBackground = require('../../assets/calendar/calendar_night.jpg')
 
     const [date, setDate] = useState(new Date())
     const [displayColon, setDisplayColon] = useState(true)

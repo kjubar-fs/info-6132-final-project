@@ -126,6 +126,7 @@ export const cardImages = {
     "Chariot": require("../assets/arcanas/Chariot.webp"),
     "Strength": require("../assets/arcanas/Strength.webp"),
     "Hermit": require("../assets/arcanas/Hermit.webp"),
+    "World": require("../assets/arcanas/World.webp"),
     "Fortune": require("../assets/arcanas/Fortune.webp"),
     "Justice": require("../assets/arcanas/Justice.webp"),
     "Hanged": require("../assets/arcanas/Hanged Man.webp"),
