@@ -3,10 +3,6 @@ import { StyleSheet } from "react-native";
 import { safeAreaBottomPadding } from "../../utils/constants";
 
 export default StyleSheet.create({
-    background: {
-        flex: 1,
-    },
-
     listContainer: {
         gap: 10,
         paddingTop: 20,
