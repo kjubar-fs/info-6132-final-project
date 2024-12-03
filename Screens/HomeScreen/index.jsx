@@ -5,13 +5,11 @@ import { PersonasScreen } from "../PersonasScreen";
 import { PersonaDetailScreen } from "../PersonaDetailScreen";
 import { PartyScreen } from "../PartyScreen";
 import { PartyDetailScreen } from "../PartyDetailScreen";
-import { FavouritesScreen } from "../FavouritesScreen/FavouritesScreen";
 
 const Stack = createStackNavigator();
 
 export function HomeScreen({ logout, favourites, setFavourites }) {
     return (
-        // TODO: hide header on all screens, make custom back buttons for personas and party screens
         <Stack.Navigator
             initialRouteName="ClockScreen"
             screenOptions={{
@@ -46,7 +44,7 @@ export function HomeScreen({ logout, favourites, setFavourites }) {
 
             <Stack.Screen
                 name="FavouritesScreen"
-                children={()=> <FavouritesScreen favourites={favourites}/>}
+                children={()=> <PersonasScreen favourites={favourites}/>}
             />
         </Stack.Navigator>
     );

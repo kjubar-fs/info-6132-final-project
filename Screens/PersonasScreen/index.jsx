@@ -9,7 +9,7 @@ import { ListHeader } from "../../components/common/ListHeader";
 
 import { safeAreaBottomPadding } from "../../utils/constants";
 
-export function PersonasScreen() {
+export function PersonasScreen({ favourites = undefined }) {
     const navigation = useNavigation();
     const personaData = useApi().persona;
 
@@ -18,7 +18,7 @@ export function PersonasScreen() {
             <ListHeader title="Personas" />
 
             <FlatList
-                data={Object.keys(personaData)}
+                data={favourites !== undefined ? favourites : Object.keys(personaData)}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate("PersonaDetailScreen", { personaName: item })} key={item}>
                         <Text style={{color: "white"}}>{item}</Text>
